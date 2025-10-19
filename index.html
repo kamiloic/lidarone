@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lidar One - Topographie, Cadastre & Solutions Drone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.6/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                        secondary: '#003366',
+                        accent: '#00aaff',
+                        light: '#f5f9ff',
+                        dark: '#1a1a2e',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Lottie Animation */
+        #lottie-drone {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Landing Pad */
+        .landing-pad {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+        }
+
+        .pad-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(0, 102, 204, 0.4);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .pad-circle:nth-child(2) {
+            animation-delay: 0.5s;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+        }
+
+        .pad-circle:nth-child(3) {
+            animation-delay: 1s;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.2;
+            }
+        }
+
+        .pad-h {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: rgba(0, 102, 204, 0.5);
+            text-shadow: 0 0 10px rgba(0, 102, 204, 0.3);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Error message for Lottie load failure */
+        #error-message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 30;
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-light text-dark">
+    <!-- Error Message -->
+    <div id="error-message">Failed to load drone animation.</div>
+
+    <!-- Lottie Animation -->
+    <lottie-player id="lottie-drone" src="./drone.json" background="transparent" speed="1" loop
+        autoplay></lottie-player>
+
+    <!-- Landing Pad -->
+    <div class="landing-pad">
+        <div class="pad-circle"></div>
+        <div class="pad-circle"></div>
+        <div class="pad-circle"></div>
+        <div class="pad-h">1</div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full z-50 transition-all duration-300 py-5">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="flex justify-between items-center">
+                <a href="#accueil"
+                    class="flex items-center text-white text-2xl font-bold hover:text-accent transition-colors">
+                    <img src="./assets/logo.jpg" class="w-16 contain" alt="Lidar One Logo">
+                </a>
+                <nav class="hidden lg:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#accueil"
+                                class="text-white font-medium hover:text-accent transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full">Accueil</a>
+                        </li>
+                        <li><a href="#services"
+                                class="text-white font-medium hover:text-accent transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full">Services</a>
+                        </li>
+                        <li><a href="#pourquoi-nous"
+                                class="text-white font-medium hover:text-accent transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full">Pourquoi
+                                nous</a></li>
+                        <li><a href="products.html"
+                                class="text-white font-medium hover:text-accent transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full">Produits</a>
+                        </li>
+                        <li><a href="#contact"
+                                class="text-white font-medium hover:text-accent transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#contact"
+                    class="hidden lg:block bg-accent hover:bg-primary text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg">
+                    Demander un devis
+                </a>
+                <button id="menuToggle" class="lg:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-40 transform translate-x-full transition-transform duration-300">
+        <div class="p-6">
+            <button id="closeMenu" class="text-2xl text-gray-800 mb-8">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="space-y-4">
+                <li><a href="#accueil"
+                        class="block text-gray-800 font-medium hover:text-primary transition-colors">Accueil</a></li>
+                <li><a href="#services"
+                        class="block text-gray-800 font-medium hover:text-primary transition-colors">Services</a></li>
+                <li><a href="#pourquoi-nous"
+                        class="block text-gray-800 font-medium hover:text-primary transition-colors">Pourquoi nous</a>
+                </li>
+                <li><a href="products.html"
+                        class="block text-gray-800 font-medium hover:text-primary transition-colors">Produits</a></li>
+                <li><a href="#contact"
+                        class="block text-gray-800 font-medium hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section id="accueil" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Drone flying over landscape" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-br from-secondary/80 via-primary/70 to-secondary/80"></div>
+        </div>
+        <div class="container mx-auto px-4 lg:px-6 relative z-20 text-center text-white">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">Précision et innovation<br>au
+                service de votre projet</h1>
+            <p class="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-gray-100">Lidar One vous accompagne
+                avec des solutions de topographie, de cadastre et de levés drone sur mesure pour tous vos projets
+                d'aménagement et de construction.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#services"
+                    class="bg-accent hover:bg-primary text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg inline-block">
+                    <i class="fas fa-rocket mr-2"></i> Découvrir nos services
+                </a>
+                <a href="#contact"
+                    class="bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 inline-block">
+                    <i class="fas fa-file-invoice mr-2"></i> Demander un devis
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white scroll-indicator z-20">
+            <i class="fas fa-chevron-down text-3xl"></i>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">Nos Services</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Excellence et précision dans chaque mission</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
+                    <div class="p-8 text-center">
+                        <div
+                            class="w-20 h-20 mx-auto mb-6 text-primary transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-drafting-compass text-6xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">Topographie</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Levés topographiques précis pour vos projets de
+                            construction, d'infrastructure et d'aménagement.</p>
+                        <a href="#"
+                            class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-full transition-all duration-300">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
+                    <div class="p-8 text-center">
+                        <div
+                            class="w-20 h-20 mx-auto mb-6 text-primary transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-map-marked-alt text-6xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">Cadastre</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Délimitation précise des propriétés et mise à jour
+                            des documents cadastraux.</p>
+                        <a href="#"
+                            class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-full transition-all duration-300">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
+                    <div class="p-8 text-center">
+                        <div
+                            class="w-20 h-20 mx-auto mb-6 text-primary transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-water text-6xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">Bathymétrie</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Cartographie des fonds marins et des plans d'eau
+                            pour vos projets hydrauliques et portuaires.</p>
+                        <a href="#"
+                            class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-full transition-all duration-300">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
+                    <div class="p-8 text-center">
+                        <div
+                            class="w-20 h-20 mx-auto mb-6 text-primary transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-drone text-6xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">Lidar & Drone Survey</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Technologies de pointe pour des relevés 3D rapides
+                            et précis par drone et lidar.</p>
+                        <a href="#"
+                            class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-full transition-all duration-300">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Us Section -->
+    <section id="pourquoi-nous" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Technology background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 lg:px-6 relative z-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">Pourquoi choisir Lidar One ?
+                </h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">L'excellence à votre service</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white transform hover:rotate-6 transition-transform duration-300">
+                        <i class="fas fa-bullseye text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Précision centimétrique</h3>
+                    <p class="text-gray-600 leading-relaxed">Nos équipements de pointe garantissent une précision
+                        exceptionnelle pour tous vos projets.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white transform hover:rotate-6 transition-transform duration-300">
+                        <i class="fas fa-bolt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Rapidité d'intervention</h3>
+                    <p class="text-gray-600 leading-relaxed">Réactivité et efficacité pour respecter vos délais, même
+                        sur les projets les plus complexes.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white transform hover:rotate-6 transition-transform duration-300">
+                        <i class="fas fa-user-graduate text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Expertise certifiée</h3>
+                    <p class="text-gray-600 leading-relaxed">Notre équipe qualifiée et expérimentée vous accompagne de
+                        la conception à la réalisation.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white transform hover:rotate-6 transition-transform duration-300">
+                        <i class="fas fa-microchip text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary">Technologie moderne</h3>
+                    <p class="text-gray-600 leading-relaxed">Nous utilisons les dernières technologies pour des
+                        résultats optimaux et innovants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Products Section -->
+    <section id="produits" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">Produits phares</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Équipements professionnels de haute précision</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-3 border border-gray-100">
+                    <div class="h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                        <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Drone professionnel"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-secondary">Drone Topographique DJI Matrice 350 RTK</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Drone professionnel équipé pour les levés de
+                            précision avec caméra haute résolution et système RTK intégré.</p>
+                        <div class="flex gap-3">
+                            <a href="#"
+                                class="flex-1 bg-primary hover:bg-secondary text-white text-center font-semibold py-3 px-4 rounded-lg transition-colors duration-300">
+                                <i class="fas fa-clock mr-2"></i> Louer
+                            </a>
+                            <a href="#"
+                                class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white text-center font-semibold py-3 px-4 rounded-lg transition-all duration-300">
+                                <i class="fas fa-shopping-cart mr-2"></i> Acheter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-3 border border-gray-100">
+                    <div class="h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="GPS RTK"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-secondary">GPS RTK Leica GS18 T</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Récepteur GNSS RTK avec IMU pour une mesure
+                            précise et rapide sans mise en station.</p>
+                        <div class="flex gap-3">
+                            <a href="#"
+                                class="flex-1 bg-primary hover:bg-secondary text-white text-center font-semibold py-3 px-4 rounded-lg transition-colors duration-300">
+                                <i class="fas fa-clock mr-2"></i> Louer
+                            </a>
+                            <a href="#"
+                                class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white text-center font-semibold py-3 px-4 rounded-lg transition-all duration-300">
+                                <i class="fas fa-shopping-cart mr-2"></i> Acheter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-3 border border-gray-100">
+                    <div class="h-64 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                        <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Station totale"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-secondary">Station Totale Leica TS16</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Station totale robotisée avec technologie ATR pour
+                            un suivi automatique de la cible.</p>
+                        <div class="flex gap-3">
+                            <a href="#"
+                                class="flex-1 bg-primary hover:bg-secondary text-white text-center font-semibold py-3 px-4 rounded-lg transition-colors duration-300">
+                                <i class="fas fa-clock mr-2"></i> Louer
+                            </a>
+                            <a href="#"
+                                class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white text-center font-semibold py-3 px-4 rounded-lg transition-all duration-300">
+                                <i class="fas fa-shopping-cart mr-2"></i> Acheter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#contact"
+                    class="inline-block bg-accent hover:bg-primary text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg">
+                    <i class="fas fa-th mr-2"></i> Voir tous les équipements
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Clients Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">Ils nous font confiance</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Partenaires et clients satisfaits</p>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16 mb-16">
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/320px-Google_2015_logo.svg.png"
+                        alt="Google"
+                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/320px-Apple_logo_black.svg.png"
+                        alt="Apple"
+                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png"
+                        alt="Amazon"
+                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/320px-Microsoft_logo_%282012%29.svg.png"
+                        alt="Microsoft"
+                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/320px-IBM_logo.svg.png"
+                        alt="IBM"
+                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+            <!-- Testimonials -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"Travail remarquable sur notre projet
+                        d'urbanisme. Précision et professionnalisme au rendez-vous."</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            JP
+                        </div>
+                        <div>
+                            <p class="font-bold text-secondary">Jean-Pierre M.</p>
+                            <p class="text-sm text-gray-500">Directeur de projet</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"Service de location impeccable. Équipements de
+                        qualité et support technique réactif."</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            MN
+                        </div>
+                        <div>
+                            <p class="font-bold text-secondary">Marie N.</p>
+                            <p class="text-sm text-gray-500">Ingénieur géomètre</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"La technologie drone a révolutionné notre
+                        façon de travailler. Résultats exceptionnels !"</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            PK
+                        </div>
+                        <div>
+                            <p class="font-bold text-secondary">Paul K.</p>
+                            <p class="text-sm text-gray-500">Architecte</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4">Contactez-nous</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nous sommes à votre écoute</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-6 text-secondary">Demander un devis</h3>
+                    <form class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Nom complet</label>
+                            <input type="text"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                                placeholder="Votre nom">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Email</label>
+                            <input type="email"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                                placeholder="votre@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Téléphone</label>
+                            <input type="tel"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                                placeholder="+237 6XX XXX XXX">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Service demandé</label>
+                            <select
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                                <option>Topographie</option>
+                                <option>Cadastre</option>
+                                <option>Bathymétrie</option>
+                                <option>Lidar & Drone Survey</option>
+                                <option>Vente d'équipement</option>
+                                <option>Location d'équipement</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-gray-700">Message</label>
+                            <textarea rows="4"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
+                                placeholder="Décrivez votre projet..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-secondary text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg">
+                            <i class="fas fa-paper-plane mr-2"></i> Envoyer la demande
+                        </button>
+                    </form>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <div
+                        class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 shadow-lg mb-6 border border-gray-100">
+                        <h3 class="text-2xl font-bold mb-6 text-secondary">Coordonnées</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-secondary mb-1">Adresse</p>
+                                    <p class="text-gray-600">Bangangté, Région de l'Ouest</p>
+                                    <p class="text-gray-600">Cameroun</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-secondary mb-1">Téléphone</p>
+                                    <p class="text-gray-600">+237 6XX XXX XXX</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                    <i class="fab fa-whatsapp text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-secondary mb-1">WhatsApp</p>
+                                    <p class="text-gray-600">+237 6XX XXX XXX</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-secondary mb-1">Email</p>
+                                    <p class="text-gray-600">contact@lidarone.cm</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <a href="tel:+237"
+                                class="flex-1 bg-primary hover:bg-secondary text-white text-center font-semibold py-3 px-4 rounded-lg transition-all duration-300">
+                                <i class="fas fa-phone mr-2"></i> Appeler
+                            </a>
+                            <a href="https://wa.me/237"
+                                class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center font-semibold py-3 px-4 rounded-lg transition-all duration-300">
+                                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Map -->
+                    <div
+                        class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-lg overflow-hidden h-64 border border-gray-200">
+                        <div class="w-full h-full flex items-center justify-center text-center p-6">
+                            <div>
+                                <i class="fas fa-map-marked-alt text-6xl text-primary mb-4"></i>
+                                <p class="text-xl font-bold text-secondary">Bangangté, Cameroun</p>
+                                <p class="text-gray-600 mt-2">Intervention dans tout le Cameroun</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-secondary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-satellite-dish text-accent text-3xl mr-3"></i>
+                        <span class="text-2xl font-bold">Lidar One</span>
+                    </div>
+                    <p class="mb-6 text-gray-300 leading-relaxed">Votre partenaire de confiance pour tous vos projets de
+                        topographie, cadastre et levés drone.</p>
+                    <div class="flex space-x-3">
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-accent transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-accent transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-accent transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center hover:bg-accent transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Nos Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center"><i
+                                    class="fas fa-chevron-right text-accent mr-2 text-xs"></i> Topographie</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center"><i
+                                    class="fas fa-chevron-right text-accent mr-2 text-xs"></i> Cadastre</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center"><i
+                                    class="fas fa-chevron-right text-accent mr-2 text-xs"></i> Bathymétrie</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center"><i
+                                    class="fas fa-chevron-right text-accent mr-2 text-xs"></i> Lidar & Drone Survey</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Liens Rapides</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#accueil"
+                                class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center"><i
+                                    class="fas fa-chevron-right text-accent mr-2 text-xs"></i> Accueil</a></li>
+                        <li><a href="#services"
+                                class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center"><i
+                                    class="fas fa-chevron-right text-accent mr-2 text-xs"></i> Services</a></li>
+                        <li><a href="products.html"
+                                class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center"><i
+                                    class="fas fa-chevron-right text-accent mr-2 text-xs"></i> Vente & Location</a></li>
+                        <li><a href="#contact"
+                                class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center"><i
+                                    class="fas fa-chevron-right text-accent mr-2 text-xs"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">Restez informé de nos actualités et offres</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Votre email"
+                            class="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-gray-400">
+                        <button
+                            class="bg-accent hover:bg-primary px-6 py-3 rounded-r-lg transition-colors duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center text-gray-400">
+                <div class="landing-pad" style="position: relative; margin: 20px auto; width: 120px;"></div>
+                <p>&copy; 2025 Lidar One. Tous droits réservés. Conçu avec <i
+                        class="fas fa-heart text-red-500 mx-1"></i> au Cameroun</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-primary hover:bg-accent rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none z-50">
+        <i class="fas fa-arrow-up text-white text-xl"></i>
+    </button>
+
+    <script>
+        // Lottie Animation Setup
+        const lottieDrone = document.getElementById('lottie-drone');
+        const errorMessage = document.getElementById('error-message');
+
+        // Check if Lottie animation loaded
+        lottieDrone.addEventListener('error', (e) => {
+            console.error('Failed to load drone.json:', e);
+            errorMessage.style.display = 'block';
+            setTimeout(() => errorMessage.style.display = 'none', 5000);
+            lottieDrone.style.display = 'none'; // Hide Lottie player on error
+        });
+
+        lottieDrone.addEventListener('load', () => {
+            console.log('Lottie animation loaded successfully');
+        });
+
+        // Animation Variables
+        let posX = 0;
+        let posY = 0;
+        let velocityX = 0.02;
+        let velocityY = 0.015;
+        let isLanded = true;
+
+        // Animation Loop
+        function animateDrone() {
+            // Update drone position based on scroll
+            const scrolled = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const windowWidth = window.innerWidth;
+            const documentHeight = document.documentElement.scrollHeight;
+            const footerHeight = 500;
+
+            if (scrolled < windowHeight * 0.8) {
+                const takeoffProgress = scrolled / (windowHeight * 0.8);
+                posY = (0.1 - (takeoffProgress * 0.3)) * windowHeight;
+                posX = takeoffProgress * windowWidth * 0.5;
+                isLanded = false;
+            } else if (scrolled >= windowHeight * 0.8 && scrolled < windowHeight * 4.5) {
+                const flyProgress = (scrolled - windowHeight * 0.8) / (windowHeight * 3.7);
+                const targets = [
+                    { x: 0.5 * windowWidth, y: -0.2 * windowHeight }, // end of takeoff
+                    { x: 0.2 * windowWidth, y: -0.2 * windowHeight }, // services section title area
+                    { x: 0.3 * windowWidth, y: 0.5 * windowHeight }, // below services - lower position
+                    { x: 0.7 * windowWidth, y: 0.55 * windowHeight }, // move across page below content
+                    { x: 0.85 * windowWidth, y: 0.2 * windowHeight }, // settle next to Contact from right
+                    { x: 0.5 * windowWidth, y: 0.15 * windowHeight } // middle before footer landing
+                ];
+                const numSegments = targets.length - 1;
+                const segment = Math.floor(flyProgress * numSegments);
+                const intraProgress = (flyProgress * numSegments) % 1;
+                const from = targets[segment] || targets[targets.length - 1];
+                const to = targets[segment + 1] || targets[targets.length - 1];
+                posX = from.x + (to.x - from.x) * intraProgress;
+                posY = from.y + (to.y - from.y) * intraProgress;
+                isLanded = false;
+            } else if (scrolled >= documentHeight - windowHeight - footerHeight) {
+                const landingProgress = (scrolled - (documentHeight - windowHeight - footerHeight)) / footerHeight;
+                const startX = 0.5 * windowWidth;
+                const startY = 0.15 * windowHeight;
+                posY = startY + (landingProgress * (0.25 - startY / windowHeight)) * windowHeight;
+                posX = startX * (1 - landingProgress);
+                if (landingProgress >= 0.9) {
+                    isLanded = true;
+                }
+            } else {
+                posY = 0.3 * windowHeight;
+                posX = 0.7 * windowWidth * 0.5;
+                isLanded = false;
+            }
+
+            // Boundary checks (in pixels)
+            const droneWidth = 400; // Lottie player width
+            const droneHeight = 400; // Lottie player height
+            if (posX <= -windowWidth / 2 + droneWidth / 2 || posX >= windowWidth / 2 - droneWidth / 2) {
+                velocityX = -velocityX;
+                posX = Math.max(-windowWidth / 2 + droneWidth / 2, Math.min(windowWidth / 2 - droneWidth / 2, posX));
+            }
+            if (posY <= -windowHeight / 2 + droneHeight / 2 || posY >= windowHeight / 2 - droneHeight / 2) {
+                velocityY = -velocityY;
+                posY = Math.max(-windowHeight / 2 + droneHeight / 2, Math.min(windowHeight / 2 - droneHeight / 2, posY));
+            }
+
+            // Apply tilt and position
+            const tiltX = velocityY * 5;
+            const tiltY = -velocityX * 5;
+            lottieDrone.style.transform = `translate(${posX}px, ${posY}px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+
+            requestAnimationFrame(animateDrone);
+        }
+
+        // Start animation
+        animateDrone();
+
+        // Responsive adjustments
+        window.addEventListener('resize', () => {
+            // Recalculate positions if needed
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        function updateHeader() {
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white', 'shadow-md', 'py-3');
+                header.classList.remove('py-5');
+                header.querySelectorAll('a, button, span, i').forEach(el => {
+                    if (!el.classList.contains('bg-accent') && !el.classList.contains('text-accent')) {
+                        el.classList.remove('text-white');
+                        el.classList.add('text-gray-800');
+                    }
+                });
+            } else {
+                header.classList.remove('bg-white', 'shadow-md', 'py-3');
+                header.classList.add('py-5');
+                header.querySelectorAll('a, button, span').forEach(el => {
+                    if (!el.classList.contains('bg-accent')) {
+                        el.classList.remove('text-gray-800');
+                        el.classList.add('text-white');
+                    }
+                });
+            }
+        }
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        function updateBackToTop() {
+            if (window.scrollY > 500) {
+                backToTop.style.opacity = '1';
+                backToTop.style.pointerEvents = 'auto';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.pointerEvents = 'none';
+            }
+        }
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll event
+        window.addEventListener('scroll', () => {
+            updateHeader();
+            updateBackToTop();
+        });
+
+        // Initial calls
+        updateHeader();
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = 80;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Notre équipe vous contactera sous 24h.');
+            e.target.reset();
+        });
+    </script>
+
+</body>
+
+</html>
