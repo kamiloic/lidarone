@@ -253,6 +253,104 @@
         .card-content {
             backface-visibility: hidden;
         }
+
+        /* Logo Ray Filter Effects */
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .logo-ray {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(17, 110, 171, 0.4) 50%,
+                transparent 100%);
+            animation: ray-sweep 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .logo-grayscale {
+            filter: grayscale(100%) brightness(0.8) contrast(1.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-color {
+            filter: grayscale(0%) brightness(1) contrast(1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-container:hover .logo-grayscale {
+            filter: grayscale(0%) brightness(1.1) contrast(1.1);
+        }
+
+        .logo-container:hover .logo-ray {
+            animation-play-state: paused;
+            left: 100%;
+        }
+
+        @keyframes ray-sweep {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: -100%;
+            }
+        }
+
+        /* Enhanced logo hover effects */
+        .logo-glow {
+            transition: all 0.3s ease;
+        }
+
+        .logo-glow:hover {
+            filter: drop-shadow(0 0 10px rgba(17, 110, 171, 0.5));
+            transform: scale(1.05);
+        }
+
+        /* Partner logos enhancement */
+        .partner-logo {
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            filter: grayscale(0%);
+        }
+
+        /* Partner logos entrance animation */
+        .partner-logo {
+            animation: logo-fade-in 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .partner-logo:nth-child(1) { animation-delay: 0.1s; }
+        .partner-logo:nth-child(2) { animation-delay: 0.2s; }
+        .partner-logo:nth-child(3) { animation-delay: 0.3s; }
+        .partner-logo:nth-child(4) { animation-delay: 0.4s; }
+        .partner-logo:nth-child(5) { animation-delay: 0.5s; }
+        .partner-logo:nth-child(6) { animation-delay: 0.6s; }
+        .partner-logo:nth-child(7) { animation-delay: 0.7s; }
+        .partner-logo:nth-child(8) { animation-delay: 0.8s; }
+        .partner-logo:nth-child(9) { animation-delay: 0.9s; }
+
+        @keyframes logo-fade-in {
+            to {
+                opacity: 0.7;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -277,7 +375,10 @@
         <div class="container mx-auto px-4 lg:px-6">
             <div class="flex justify-between items-center">
                 <a href="#accueil" class="flex items-center text-lidar-dark text-xl font-bold">
-                    <img src="./assets/logo.svg" class="w-16 h-16 contain" alt="Lidar One Logo">
+                    <div class="logo-container">
+                        <div class="logo-ray"></div>
+                        <img src="./assets/logo.svg" class="w-16 h-16 contain logo-grayscale logo-glow" alt="Lidar One Logo">
+                    </div>
                 </a>
                 <nav class="hidden lg:block">
                     <ul class="flex space-x-8">
@@ -681,41 +782,68 @@
     <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div class="container mx-auto px-4 lg:px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lidar-dark mb-4">Ils nous font confiance</h2>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-lidar-dark mb-4">
+                    <span class="logo-container inline-block">
+                        <div class="logo-ray"></div>
+                        <span class="logo-grayscale">Ils nous font confiance</span>
+                    </span>
+                </h2>
                 <div class="w-20 h-1 bg-lidar-blue mx-auto mb-6"></div>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">Partenaires et clients satisfaits</p>
             </div>
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16 mb-16">
                 <div
                     class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/320px-Google_2015_logo.svg.png"
+                    <img src="./assets/partners/IMG_0868.PNG"
                         alt="Google"
-                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                        class="max-w-full max-h-full object-contain partner-logo">
                 </div>
                 <div
                     class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/320px-Apple_logo_black.svg.png"
+                    <img src="./assets/partners/IMG_0869.JPG"
                         alt="Apple"
-                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                        class="max-w-full max-h-full object-contain partner-logo">
                 </div>
                 <div
                     class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png"
+                    <img src="./assets/partners/IMG_0870.PNG"
                         alt="Amazon"
-                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                        class="max-w-full max-h-full object-contain partner-logo">
                 </div>
                 <div
                     class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/320px-Microsoft_logo_%282012%29.svg.png"
+                    <img src="./assets/partners/IMG_0871.PNG"
                         alt="Microsoft"
-                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                        class="max-w-full max-h-full object-contain partner-logo">
                 </div>
                 <div
                     class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/320px-IBM_logo.svg.png"
+                    <img src="./assets/partners/IMG_0872.WEBP"
                         alt="IBM"
-                        class="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity">
+                        class="max-w-full max-h-full object-contain partner-logo">
                 </div>
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="./assets/partners/IMG_0873.PNG"
+                        alt=""
+                        class="max-w-full max-h-full object-contain partner-logo">
+                </div>
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="./assets/partners/IMG_0874.PNG" alt=""
+                        class="max-w-full max-h-full object-contain partner-logo">
+                </div>
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="./assets/partners/IMG_0875.JPG" alt=""
+                        class="max-w-full max-h-full object-contain partner-logo">
+                </div>
+                <div
+                    class="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+                    <img src="./assets/partners/IMG_0876.PNG" alt=""
+                        class="max-w-full max-h-full object-contain partner-logo">
+                </div>
+                
             </div>
             <!-- Testimonials -->
             <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -932,7 +1060,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                     <div>
                         <div class="flex items-center mb-6">
-                            <img src="./assets/logo.svg" class="w-12 h-12 contain mr-3" alt="Lidar One Logo">
+                            <div class="logo-container">
+                                <div class="logo-ray"></div>
+                                <img src="./assets/logo.svg" class="w-12 h-12 contain logo-grayscale logo-glow mr-3" alt="Lidar One Logo">
+                            </div>
                             <span class="text-2xl font-bold">Lidar One</span>
                         </div>
                         <p class="mb-6 text-gray-300 leading-relaxed">Votre partenaire de confiance pour tous vos
