@@ -1,0 +1,422 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Lidar One - Topographie, Cadastre & Solutions Drone" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-white text-lidar-dark grid-background">
+    <!-- Error Message -->
+    <div id="error-message">Failed to load drone animation.</div>
+
+    <!-- Lottie Animation -->
+    <lottie-player id="lottie-drone" src="/drone.json" background="transparent" speed="1" loop
+        autoplay></lottie-player>
+
+    <!-- Landing Pad -->
+    <div class="landing-pad">
+        <div class="pad-circle"></div>
+        <div class="pad-circle"></div>
+        <div class="pad-circle"></div>
+        <div class="pad-h">1</div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="fixed w-full z-50 transition-all duration-300 py-4 bg-white shadow-sm">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center text-lidar-dark text-xl font-bold">
+                    <img src="/assets/logo.svg" class="w-16 h-16 contain" alt="Lidar One Logo">
+                </a>
+                <nav class="hidden lg:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="/#accueil"
+                                class="text-lidar-blue font-medium transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-lidar-blue">Accueil</a>
+                        </li>
+                        <li><a href="/services"
+                                class="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full">Services</a>
+                        </li>
+                        <li><a href="/#pourquoi-nous"
+                                class="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full">Pourquoi
+                                nous</a></li>
+                        <li><a href="/equipements"
+                                class="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full">Équipements</a>
+                        </li>
+                        <li><a href="/#contact"
+                                class="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="/#contact"
+                    class="hidden lg:block bg-lidar-blue hover:bg-lidar-dark text-white font-semibold py-2 px-6 rounded transition-all duration-300">
+                    Demander un devis
+                </a>
+                <button id="menuToggle" class="lg:hidden text-lidar-dark text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-40 transform translate-x-full transition-transform duration-300">
+        <div class="p-6">
+            <button id="closeMenu" class="text-2xl text-gray-800 mb-8">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="space-y-4">
+                <li><a href="/" class="block text-lidar-blue font-medium">Accueil</a></li>
+                <li><a href="/services"
+                        class="block text-gray-800 font-medium hover:text-lidar-blue transition-colors">Services</a>
+                </li>
+                <li><a href="/#pourquoi-nous"
+                        class="block text-gray-800 font-medium hover:text-lidar-blue transition-colors">Pourquoi
+                        nous</a></li>
+                <li><a href="/equipements"
+                        class="block text-gray-800 font-medium hover:text-lidar-blue transition-colors">Équipements</a>
+                </li>
+                <li><a href="/#contact"
+                        class="block text-gray-800 font-medium hover:text-lidar-blue transition-colors">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <slot />
+
+    <!-- Footer -->
+    <footer class="bg-lidar-dark text-white pt-16 pb-8 overflow-hidden relative">
+        <!-- Decorative pattern: occupies bottom 1/3 of the footer, positioned below content -->
+        <div style="position:absolute; left:0; bottom:0; width:100%; height:45%; z-index:10; pointer-events:none;">
+            <img src="/assets/pattern-transparent.png" alt="pattern"
+                style="width:100%; height:100%; object-fit:cover; opacity:0.22; display:block;">
+        </div>
+        <div class="container mx-auto px-4 lg:px-6">
+            <!-- Main footer content sits above the decorative pattern -->
+            <div class="relative z-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                    <div>
+                        <div class="flex items-center mb-6">
+                            <img src="/assets/logo.svg" class="w-12 h-12 contain mr-3" alt="Lidar One Logo">
+                            <span class="text-2xl font-bold">Lidar One</span>
+                        </div>
+                        <p class="mb-6 text-gray-300 leading-relaxed">Votre partenaire de confiance pour tous vos
+                            projets de
+                            topographie, cadastre et levés drone.</p>
+                        <div class="flex space-x-3">
+                            <a href="#"
+                                class="w-10 h-10 bg-lidar-blue rounded flex items-center justify-center hover:bg-opacity-80 transition-colors duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-lidar-blue rounded flex items-center justify-center hover:bg-opacity-80 transition-colors duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-lidar-blue rounded flex items-center justify-center hover:bg-opacity-80 transition-colors duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-lidar-blue rounded flex items-center justify-center hover:bg-opacity-80 transition-colors duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Nos Services</h3>
+                        <ul class="space-y-3">
+                            <li><a href="/services"
+                                    class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"><i
+                                        class="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Topographie</a>
+                            </li>
+                            <li><a href="/services"
+                                    class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"><i
+                                        class="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Cadastre</a></li>
+                            <li><a href="/services"
+                                    class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"><i
+                                        class="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Bathymétrie</a>
+                            </li>
+                            <li><a href="/services"
+                                    class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"><i
+                                        class="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Lidar & Drone
+                                    Survey</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Liens Rapides</h3>
+                        <ul class="space-y-3">
+                            <li><a href="/"
+                                    class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"><i
+                                        class="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Accueil</a></li>
+                            <li><a href="/services"
+                                    class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"><i
+                                        class="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Services</a></li>
+                            <li><a href="/equipements"
+                                    class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"><i
+                                        class="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Vente & Location
+                                    Équipements</a>
+                            </li>
+                            <li><a href="/#contact"
+                                    class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"><i
+                                        class="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Restez informé de nos actualités et offres</p>
+                        <div class="flex">
+                            <input type="email" placeholder="Votre email"
+                                class="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-l focus:outline-none focus:ring-2 focus:ring-lidar-blue text-white placeholder-gray-400">
+                            <button
+                                class="bg-lidar-blue hover:bg-opacity-80 px-6 py-3 rounded-r transition-colors duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-8 border-t border-white/10 text-center text-gray-400">
+                    <p>&copy; 2025 Lidar One. Tous droits réservés. Conçu avec <i
+                            class="fas fa-heart text-red-500 mx-1"></i> au Cameroun</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-lidar-blue hover:bg-lidar-dark rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 opacity-0 pointer-events-none z-50">
+        <i class="fas fa-arrow-up text-white text-xl"></i>
+    </button>
+
+    <script>
+        // Lottie Animation Setup
+        const lottieDrone = document.getElementById('lottie-drone');
+        const errorMessage = document.getElementById('error-message');
+
+        // Check if Lottie animation loaded
+        lottieDrone.addEventListener('error', (e) => {
+            console.error('Failed to load drone.json:', e);
+            errorMessage.style.display = 'block';
+            setTimeout(() => errorMessage.style.display = 'none', 5000);
+            lottieDrone.style.display = 'none'; // Hide Lottie player on error
+        });
+
+        lottieDrone.addEventListener('load', () => {
+            console.log('Lottie animation loaded successfully');
+        });
+
+        // Animation Variables
+        let posX = 0;
+        let posY = 0;
+        let velocityX = 0.02;
+        let velocityY = 0.015;
+        let isLanded = true;
+
+        // Animation Loop
+        function animateDrone() {
+            // Update drone position based on scroll
+            const scrolled = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const windowWidth = window.innerWidth;
+            const documentHeight = document.documentElement.scrollHeight;
+            const footerHeight = 500;
+
+            if (scrolled < windowHeight * 0.8) {
+                const takeoffProgress = scrolled / (windowHeight * 0.8);
+                posY = (0.1 - (takeoffProgress * 0.3)) * windowHeight;
+                posX = takeoffProgress * windowWidth * 0.5;
+                isLanded = false;
+            } else if (scrolled >= windowHeight * 0.8 && scrolled < windowHeight * 4.5) {
+                const flyProgress = (scrolled - windowHeight * 0.8) / (windowHeight * 3.7);
+                const targets = [
+                    { x: 0.5 * windowWidth, y: -0.2 * windowHeight }, // end of takeoff
+                    { x: 0.2 * windowWidth, y: -0.2 * windowHeight }, // services section title area
+                    { x: 0.3 * windowWidth, y: 0.5 * windowHeight }, // below services - lower position
+                    { x: 0.7 * windowWidth, y: 0.55 * windowHeight }, // move across page below content
+                    { x: 0.85 * windowWidth, y: 0.2 * windowHeight }, // settle next to Contact from right
+                    { x: 0.5 * windowWidth, y: 0.15 * windowHeight } // middle before footer landing
+                ];
+                const numSegments = targets.length - 1;
+                const segment = Math.floor(flyProgress * numSegments);
+                const intraProgress = (flyProgress * numSegments) % 1;
+                const from = targets[segment] || targets[targets.length - 1];
+                const to = targets[segment + 1] || targets[targets.length - 1];
+                posX = from.x + (to.x - from.x) * intraProgress;
+                posY = from.y + (to.y - from.y) * intraProgress;
+                isLanded = false;
+            } else if (scrolled >= documentHeight - windowHeight - footerHeight) {
+                const landingProgress = (scrolled - (documentHeight - windowHeight - footerHeight)) / footerHeight;
+                const startX = 0.5 * windowWidth;
+                const startY = 0.15 * windowHeight;
+                posY = startY + (landingProgress * (0.25 - startY / windowHeight)) * windowHeight;
+                posX = startX * (1 - landingProgress);
+                if (landingProgress >= 0.9) {
+                    isLanded = true;
+                }
+            } else {
+                posY = 0.3 * windowHeight;
+                posX = 0.7 * windowWidth * 0.5;
+                isLanded = false;
+            }
+
+            // Boundary checks (in pixels)
+            const droneWidth = 400; // Lottie player width
+            const droneHeight = 400; // Lottie player height
+            if (posX <= -windowWidth / 2 + droneWidth / 2 || posX >= windowWidth / 2 - droneWidth / 2) {
+                velocityX = -velocityX;
+                posX = Math.max(-windowWidth / 2 + droneWidth / 2, Math.min(windowWidth / 2 - droneWidth / 2, posX));
+            }
+            if (posY <= -windowHeight / 2 + droneHeight / 2 || posY >= windowHeight / 2 - droneHeight / 2) {
+                velocityY = -velocityY;
+                posY = Math.max(-windowHeight / 2 + droneHeight / 2, Math.min(windowHeight / 2 - droneHeight / 2, posY));
+            }
+
+            // Apply tilt and position
+            const tiltX = velocityY * 5;
+            const tiltY = -velocityX * 5;
+            lottieDrone.style.transform = `translate(${posX}px, ${posY}px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+
+            requestAnimationFrame(animateDrone);
+        }
+
+        // Start animation
+        animateDrone();
+
+        // Responsive adjustments
+        window.addEventListener('resize', () => {
+            // Recalculate positions if needed
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        function updateHeader() {
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-md', 'py-3');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.remove('shadow-md', 'py-3');
+                header.classList.add('py-4');
+            }
+        }
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        function updateBackToTop() {
+            if (window.scrollY > 500) {
+                backToTop.style.opacity = '1';
+                backToTop.style.pointerEvents = 'auto';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.pointerEvents = 'none';
+            }
+        }
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll event
+        window.addEventListener('scroll', () => {
+            updateHeader();
+            updateBackToTop();
+        });
+
+        // Initial calls
+        updateHeader();
+
+        // Mobile menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        if (menuToggle && mobileMenu && closeMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+            closeMenu.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = 80;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for cards
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.parallax-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+                    const xRotation = ((y - rect.height / 2) / rect.height) * 10;
+                    const yRotation = ((x - rect.width / 2) / rect.width) * 10;
+
+                    card.style.transform = `
+                        perspective(1000px)
+                        rotateX(${-xRotation}deg)
+                        rotateY(${yRotation}deg)
+                        translateZ(20px)
+                    `;
+                } else {
+                    card.style.transform = 'none';
+                }
+            });
+        });
+
+        // Reset card transform on mouse leave
+        document.querySelectorAll('.parallax-card').forEach(card => {
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'none';
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Notre équipe vous contactera sous 24h.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Produits - Lidar One - Topographie, Cadastre & Solutions Drone">
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 bg-cover bg-center pattern-background text-white">
+        <div class="container mx-auto px-4 lg:px-6 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">Équipements
+                professionnels<br>de pointe</h1>
+            <p class="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-gray-100">Découvrez notre gamme
+                complète d'équipements pour la topographie, le cadastre et les levés drone. Location et vente
+                disponibles.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products-grid"
+                    class="cyber-button bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-3 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500">
+                    <span class="relative z-10 flex items-center justify-center">
+                        <i class="fas fa-th mr-2"></i> Voir nos équipements
+                    </span>
+                </a>
+                <a href="/#contact"
+                    class="cyber-button bg-glass-light backdrop-blur-sm text-white border border-white/30 font-bold py-3 px-8 rounded-lg hover:bg-white/10 transition-all duration-500">
+                    <span class="relative z-10 flex items-center justify-center">
+                        <i class="fas fa-file-invoice mr-2"></i> Demander un devis
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid Section -->
+    <section id="products-grid" class="py-20 bg-white parallax-container">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text">
+                    Technologies de Pointe
+                </h2>
+                <div class="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div>
+                <p class="text-xl text-lidar-blue max-w-2xl mx-auto font-cyber">
+                    La précision rencontre l'innovation
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Drone Matrice 350 RTK -->
+                <div class="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Drone professionnel"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
+                            <span class="text-lidar-blue text-sm font-bold">Nouveau</span>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-lidar-dark">Drone Matrice 350 RTK</h3>
+                            <p class="text-gray-600 text-sm">Drone professionnel avec RTK intégré</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-microchip text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Intelligence embarquée avancée</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-camera text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Caméra 4K HDR</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-battery-full text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">55 minutes d'autonomie</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-2 gap-3">
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location du Drone Matrice 350 RTK"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    Louer
+                                </span>
+                            </a>
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat du Drone Matrice 350 RTK"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart mr-2"></i>
+                                    Acheter
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GPS RTK Leica GS18 T -->
+                <div class="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="GPS RTK"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
+                            <span class="text-lidar-blue text-sm font-bold">Premium</span>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-lidar-dark">GPS RTK Leica GS18 T</h3>
+                            <p class="text-gray-600 text-sm">Récepteur GNSS de haute précision</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-satellite text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Multi-constellation GNSS</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-tachometer-alt text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Précision millimétrique</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-wifi text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">RTK temps réel</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-2 gap-3">
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location du GPS RTK Leica GS18 T"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    Louer
+                                </span>
+                            </a>
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat du GPS RTK Leica GS18 T"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart mr-2"></i>
+                                    Acheter
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Station Totale Leica TS16 -->
+                <div class="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Station totale"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
+                            <span class="text-lidar-blue text-sm font-bold">Pro</span>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-lidar-dark">Station Totale Leica TS16</h3>
+                            <p class="text-gray-600 text-sm">Station totale robotisée avec ATR</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-cube text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Technologie robotisée</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-expand-arrows-alt text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">ATR automatique</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-crosshairs text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Suivi de cible précis</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-2 gap-3">
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location de la Station Totale Leica TS16"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    Louer
+                                </span>
+                            </a>
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat de la Station Totale Leica TS16"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart mr-2"></i>
+                                    Acheter
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scanner BLK360 -->
+                <div class="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1614642264763-9b36903e8b2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Scanner Laser"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
+                            <span class="text-lidar-blue text-sm font-bold">Innovation</span>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-lidar-dark">Scanner BLK360</h3>
+                            <p class="text-gray-600 text-sm">Scanner laser 3D nouvelle génération</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-cube text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Capture 3D ultra-rapide</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-expand-arrows-alt text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Portée 360°</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-cloud-upload-alt text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Cloud processing</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-2 gap-3">
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location du Scanner BLK360"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    Louer
+                                </span>
+                            </a>
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat du Scanner BLK360"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart mr-2"></i>
+                                    Acheter
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lidar Riegl VZ-400i -->
+                <div class="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Système Lidar"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
+                            <span class="text-lidar-blue text-sm font-bold">Haute Précision</span>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-lidar-dark">Lidar Riegl VZ-400i</h3>
+                            <p class="text-gray-600 text-sm">Système LiDAR terrestre professionnel</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-mountain text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Cartographie 3D détaillée</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-bolt text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Performance optimale</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-satellite text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Analyse avancée</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-2 gap-3">
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location du Lidar Riegl VZ-400i"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    Louer
+                                </span>
+                            </a>
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat du Lidar Riegl VZ-400i"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart mr-2"></i>
+                                    Acheter
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trimble Business Center -->
+                <div class="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Logiciel spécialisé"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
+                            <span class="text-lidar-blue text-sm font-bold">Logiciel</span>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-bold mb-2 text-lidar-dark">Trimble Business Center</h3>
+                            <p class="text-gray-600 text-sm">Suite logicielle professionnelle</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-code text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Traitement de données</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-chart-line text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Analyse GNSS avancée</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fas fa-cog text-lidar-blue"></i>
+                                <span class="text-sm text-gray-600">Outils complets</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-2 gap-3">
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location de Trimble Business Center"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    Louer
+                                </span>
+                            </a>
+                            <a href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat de Trimble Business Center"
+                                class="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 font-semibold">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i class="fas fa-shopping-cart mr-2"></i>
+                                    Acheter
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="/#contact"
+                    class="cyber-button inline-block bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/40 font-bold py-4 px-8 rounded-lg hover:bg-lidar-blue/20 transition-all duration-500 font-semibold">
+                    <span class="relative z-10 flex items-center justify-center">
+                        <i class="fas fa-envelope mr-2"></i> Contactez-nous pour plus d'infos
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
