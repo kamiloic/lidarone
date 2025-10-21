@@ -15,9 +15,9 @@ export default function DroneAnimation() {
     // Initialize animation after script loads
     script.onload = () => {
       if (lottieRef.current) {
-        const lottiePlayer = lottieRef.current.querySelector('lottie-player') as any;
+        const lottiePlayer = lottieRef.current.querySelector('lottie-player') as HTMLElement;
         if (lottiePlayer) {
-          lottiePlayer.addEventListener('error', (e: any) => {
+          lottiePlayer.addEventListener('error', (e: Event) => {
             console.error('Failed to load drone.json:', e);
             const errorMessage = document.getElementById('error-message');
             if (errorMessage) {
@@ -38,7 +38,8 @@ export default function DroneAnimation() {
           let posY = 0;
           let velocityX = 0.02;
           let velocityY = 0.015;
-          let isLanded = true;
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          let isLanded = false;
 
           // Animation loop
           function animateDrone() {
@@ -140,7 +141,7 @@ export default function DroneAnimation() {
         className="fixed top-1/2 left-1/2 w-100 h-100 z-10 pointer-events-none"
         style={{ transform: 'translate(-50%, -50%)' }}
       >
-        {/* @ts-ignore */}
+        {/* @ts-expect-error: Lottie player is a custom element not recognized by TypeScript */}
         <lottie-player
           src="/drone.json"
           background="transparent"

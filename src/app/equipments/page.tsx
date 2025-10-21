@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import BackToTop from '../../components/BackToTop';
@@ -85,7 +86,7 @@ export default function Products() {
             Équipements professionnels<br />de pointe
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-gray-100">
-            Découvrez notre gamme complète d'équipements pour la topographie, le cadastre et les levés drone. Location et vente disponibles.
+            Découvrez notre gamme complète d&apos;équipements pour la topographie, le cadastre et les levés drone. Location et vente disponibles.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
@@ -96,14 +97,14 @@ export default function Products() {
                 <i className="fas fa-th mr-2"></i> Voir nos équipements
               </span>
             </a>
-            <a
+            <Link
               href="/#contact"
               className="cyber-button bg-glass-light backdrop-blur-sm text-white border border-white/30 font-bold py-3 px-8 rounded-lg hover:bg-white/10 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center justify-center">
                 <i className="fas fa-file-invoice mr-2"></i> Demander un devis
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -117,19 +118,19 @@ export default function Products() {
             </h2>
             <div className="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div>
             <p className="text-xl text-lidar-blue max-w-2xl mx-auto font-cyber">
-              La précision rencontre l'innovation
+              La précision rencontre l&apos;innovation
             </p>
           </div>
           <EquipmentGrid equipments={equipments} />
           <div className="text-center mt-12">
-            <a
+            <Link
               href="/#contact"
               className="cyber-button inline-block bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/40 font-bold py-4 px-8 rounded-lg hover:bg-lidar-blue/20 transition-all duration-500 font-semibold"
             >
               <span className="relative z-10 flex items-center justify-center">
-                <i className="fas fa-envelope mr-2"></i> Contactez-nous pour plus d'infos
+                <i className="fas fa-envelope mr-2"></i> Contactez-nous pour plus d&apos;infos
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

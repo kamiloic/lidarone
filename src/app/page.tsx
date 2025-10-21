@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DroneAnimation from '@/components/DroneAnimation';
@@ -101,17 +102,17 @@ export default function Home() {
             Précision et innovation<br />au service de votre projet
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-gray-100">
-            Lidar One vous accompagne avec des solutions de topographie, de cadastre et de levés drone sur mesure pour tous vos projets d'aménagement et de construction.
+            Lidar One vous accompagne avec des solutions de topographie, de cadastre et de levés drone sur mesure pour tous vos projets d&apos;aménagement et de construction.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
+            <Link
               href="/services"
               className="cyber-button bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-4 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center justify-center">
                 <i className="fas fa-rocket mr-2"></i> Découvrir nos services
               </span>
-            </a>
+            </Link>
             <a
               href="#contact"
               className="cyber-button bg-glass-light backdrop-blur-sm text-white border border-white/30 font-bold py-4 px-8 rounded-lg hover:bg-white/10 transition-all duration-500"
@@ -147,16 +148,16 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Topographie</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Levés topographiques précis pour vos projets de construction, d'infrastructure et d'aménagement.
+                  Levés topographiques précis pour vos projets de construction, d&apos;infrastructure et d&apos;aménagement.
                 </p>
-                <a
+                <Link
                   href="/services"
                   className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300 inline-block"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     En savoir plus <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
@@ -168,14 +169,14 @@ export default function Home() {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   Délimitation précise des propriétés et mise à jour des documents cadastraux.
                 </p>
-                <a
+                <Link
                   href="/services"
                   className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300 inline-block"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     En savoir plus <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
@@ -187,14 +188,14 @@ export default function Home() {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   Cartographie des fonds marins et des plans d'eau pour vos projets hydrauliques et portuaires.
                 </p>
-                <a
+                <Link
                   href="/services"
                   className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300 inline-block"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     En savoir plus <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
@@ -206,14 +207,14 @@ export default function Home() {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   Technologies de pointe pour des relevés 3D rapides et précis par drone et lidar.
                 </p>
-                <a
+                <Link
                   href="/services"
                   className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300 inline-block"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     En savoir plus <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -237,7 +238,7 @@ export default function Home() {
             </h2>
             <div className="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div>
             <p className="text-xl text-lidar-blue max-w-2xl mx-auto font-cyber text-white">
-              L'excellence à votre service
+              L&apos;excellence à votre service
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -295,7 +296,7 @@ export default function Home() {
           </div>
           <EquipmentGrid equipments={equipments.slice(0, 3)} />
           <div className="text-center mt-16">
-            <a
+            <Link
               href="/equipments"
               className="cyber-button inline-block bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-4 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500"
             >
@@ -303,7 +304,7 @@ export default function Home() {
                 <i className="fas fa-th mr-2"></i>
                 Voir tous les équipements
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

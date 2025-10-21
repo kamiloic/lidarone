@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import BackToTop from '../../components/BackToTop';
@@ -95,14 +96,14 @@ export default function Services() {
                 <i className="fas fa-arrow-down mr-2"></i> Découvrir nos services
               </span>
             </a>
-            <a
+            <Link
               href="/#contact"
               className="cyber-button bg-glass-light backdrop-blur-sm text-white border border-white/30 font-bold py-3 px-8 rounded-lg hover:bg-white/10 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center justify-center">
                 <i className="fas fa-file-invoice mr-2"></i> Demander un devis
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -131,14 +132,14 @@ export default function Services() {
                   Levés topographiques précis pour vos projets de construction, d'infrastructure et d'aménagement.
                   Nous utilisons des technologies de pointe pour garantir une précision millimétrique.
                 </p>
-                <a
+                <Link
                   href="/#contact"
                   className="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 inline-block font-semibold"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     En savoir plus <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -153,14 +154,14 @@ export default function Services() {
                   Délimitation précise des propriétés et mise à jour des documents cadastraux.
                   Nos experts garantissent la conformité avec les réglementations en vigueur.
                 </p>
-                <a
+                <Link
                   href="/#contact"
                   className="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 inline-block font-semibold"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     En savoir plus <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -175,14 +176,14 @@ export default function Services() {
                   Cartographie des fonds marins et des plans d'eau pour vos projets hydrauliques et portuaires.
                   Nous utilisons des sondeurs multifaisceaux pour des résultats précis.
                 </p>
-                <a
+                <Link
                   href="/#contact"
                   className="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 inline-block font-semibold"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     En savoir plus <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -197,14 +198,14 @@ export default function Services() {
                   Technologies de pointe pour des relevés 3D rapides et précis par drone et lidar.
                   Idéal pour les projets complexes nécessitant une modélisation détaillée.
                 </p>
-                <a
+                <Link
                   href="/#contact"
                   className="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 inline-block font-semibold"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     En savoir plus <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -250,14 +251,14 @@ export default function Services() {
                     <span>Calculs de cubatures et mouvements de terres</span>
                   </li>
                 </ul>
-                <a
+                <Link
                   href="/#contact"
                   className="cyber-button bg-lidar-blue hover:bg-lidar-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 inline-block font-semibold"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     Demander un devis <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
               <div className="lg:w-1/2">
                 <Image
@@ -299,14 +300,14 @@ export default function Services() {
                     <span>Géoréférencement de documents anciens</span>
                   </li>
                 </ul>
-                <a
+                <Link
                   href="/#contact"
                   className="cyber-button bg-lidar-blue hover:bg-lidar-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 inline-block"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     Demander un devis <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
               <div className="lg:w-1/2">
                 <Image
@@ -348,14 +349,14 @@ export default function Services() {
                     <span>Recherche de câbles et pipelines sous-marins</span>
                   </li>
                 </ul>
-                <a
+                <Link
                   href="/#contact"
                   className="cyber-button bg-lidar-blue hover:bg-lidar-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 inline-block"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     Demander un devis <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
               <div className="lg:w-1/2">
                 <Image
@@ -397,14 +398,14 @@ export default function Services() {
                     <span>Inspections techniques par drone</span>
                   </li>
                 </ul>
-                <a
+                <Link
                   href="/#contact"
                   className="cyber-button bg-lidar-blue hover:bg-lidar-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 inline-block"
                 >
                   <span className="relative z-10 flex items-center justify-center">
                     Demander un devis <i className="fas fa-arrow-right ml-2"></i>
                   </span>
-                </a>
+                </Link>
               </div>
               <div className="lg:w-1/2">
                 <Image
@@ -425,16 +426,16 @@ export default function Services() {
         <div className="container mx-auto px-4 lg:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Prêt à démarrer votre projet?</h2>
           <p className="text-xl mb-10 max-w-2xl mx-auto">
-            Contactez-nous dès aujourd'hui pour discuter de vos besoins et obtenir un devis personnalisé.
+            Contactez-nous dès aujourd&apos;hui pour discuter de vos besoins et obtenir un devis personnalisé.
           </p>
-          <a
+          <Link
             href="/#contact"
             className="cyber-button bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-3 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500 inline-block"
           >
             <span className="relative z-10 flex items-center justify-center">
               <i className="fas fa-paper-plane mr-2"></i> Nous contacter
             </span>
-          </a>
+          </Link>
         </div>
       </section>
 
