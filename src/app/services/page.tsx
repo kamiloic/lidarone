@@ -359,7 +359,7 @@ export default function Services() {
               </div>
               <div className="lg:w-1/2">
                 <Image
-                  src="https://images.unsplash.com/photo-1566024287286-457246b32d6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  src="/bathymetrie.jpg"
                   alt="Bathymétrie"
                   width={600}
                   height={400}

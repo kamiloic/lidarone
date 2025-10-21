@@ -14,11 +14,11 @@ export default function Footer() {
                 <div className="logo-container">
                   <div className="logo-ray"></div>
                   <Image
-                    src="/logo.svg"
+                    src="./logo-white.svg"
                     className="w-12 h-12 contain logo-grayscale logo-glow mr-3"
                     alt="Lidar One Logo"
-                    width={48}
-                    height={48}
+                    width={64}
+                    height={64}
                   />
                 </div>
               </div>

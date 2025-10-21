@@ -18,6 +18,12 @@ export default function Header() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    const currentPath = window.location.pathname;
+    if (currentPath !== '/') {
+      window.location.href = `/${sectionId}`;
+      return;
+    }
+
     const element = document.querySelector(sectionId) as HTMLElement;
     if (element) {
       const headerHeight = 80;
@@ -34,9 +40,8 @@ export default function Header() {
     <>
       <header
         id="header"
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'py-3 shadow-md' : 'py-4'
-        } bg-white`}
+        className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 shadow-md' : 'py-4'
+          } bg-white`}
       >
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex justify-between items-center">
@@ -56,20 +61,20 @@ export default function Header() {
             <nav className="hidden lg:block">
               <ul className="flex space-x-8">
                 <li>
-                  <button
-                    onClick={() => scrollToSection('#accueil')}
+                  <Link
+                    href="/"
                     className="text-lidar-blue font-medium transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-lidar-blue"
                   >
                     Accueil
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/services"
                     className="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full"
                   >
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <button
@@ -80,12 +85,12 @@ export default function Header() {
                   </button>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/equipments"
                     className="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full"
                   >
                     Équipements
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <button
@@ -117,9 +122,8 @@ export default function Header() {
       {/* Mobile Menu */}
       <div
         id="mobileMenu"
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-40 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="p-6">
           <button
@@ -131,12 +135,11 @@ export default function Header() {
           </button>
           <ul className="space-y-4">
             <li>
-              <button
-                onClick={() => scrollToSection('#accueil')}
+              <a
                 className="block text-lidar-blue font-medium"
               >
                 Accueil
-              </button>
+              </a>
             </li>
             <li>
               <a
