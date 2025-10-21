@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import DroneAnimation from '../components/DroneAnimation';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import DroneAnimation from '@/components/DroneAnimation';
 import BackToTop from '../components/BackToTop';
 
 export default function Home() {

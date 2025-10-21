@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -20,7 +21,6 @@ export default function Footer() {
                     height={48}
                   />
                 </div>
-                <span className="text-2xl font-bold">Lidar One</span>
               </div>
               <p className="mb-6 text-gray-300 leading-relaxed">
                 Votre partenaire de confiance pour tous vos projets de topographie, cadastre et levés drone.
@@ -93,36 +93,36 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-6">Liens Rapides</h3>
               <ul className="space-y-3">
                 <li>
-                  <a
+                  <Link
                     href="/#accueil"
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"
                   >
                     <i className="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Accueil
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/services"
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"
                   >
                     <i className="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Services
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/products"
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"
                   >
                     <i className="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Vente & Location Équipements
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/#contact"
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"
                   >
                     <i className="fas fa-chevron-right text-lidar-blue mr-2 text-xs"></i> Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

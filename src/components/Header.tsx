@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,17 +40,19 @@ export default function Header() {
       >
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex justify-between items-center">
-            <a href="/" className="flex items-center text-lidar-dark text-xl font-bold">
+            <Link href="/" className="flex items-center text-lidar-dark text-xl font-bold">
               <div className="logo-container">
                 <div className="logo-ray"></div>
-                <img
+                <Image
                   src="/logo.svg"
                   className="w-16 h-16 contain logo-grayscale logo-glow"
                   alt="Lidar One Logo"
+                  width={64}
+                  height={64}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            </a>
+            </Link>
             <nav className="hidden lg:block">
               <ul className="flex space-x-8">
                 <li>

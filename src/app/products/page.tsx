@@ -124,7 +124,7 @@ export default function Products() {
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
               <div className="h-64 relative overflow-hidden">
                 <Image
-                  src="/equipements/IMG-20251021-WA0001.jpg"
+                  src="/equipements/IMG-20251021-WA0006.jpg"
                   alt="Dji Matrice 350 avec capteur LiDAR dji Zenmuse L2"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -181,7 +181,7 @@ export default function Products() {
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
               <div className="h-64 relative overflow-hidden">
                 <Image
-                  src="/equipements/IMG-20251021-WA0002.jpg"
+                  src="/equipements/IMG-20251021-WA0003.jpg"
                   alt="Station totale Stonex R60"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -238,7 +238,7 @@ export default function Products() {
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
               <div className="h-64 relative overflow-hidden">
                 <Image
-                  src="/equipements/IMG-20251021-WA0003.jpg"
+                  src="/equipements/IMG-20251021-WA0005.jpg"
                   alt="Récepteur GNSS différentiel Emlid RS3"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -295,7 +295,7 @@ export default function Products() {
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
               <div className="h-64 relative overflow-hidden">
                 <Image
-                  src="/equipements/IMG-20251021-WA0004.jpg"
+                  src="/equipements/IMG-20251021-WA0001.jpg"
                   alt="Drone Dji mavic 3 multispectral"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -352,7 +352,7 @@ export default function Products() {
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
               <div className="h-64 relative overflow-hidden">
                 <Image
-                  src="/equipements/IMG-20251021-WA0005.jpg"
+                  src="/equipements/IMG-20251021-WA0002.jpg"
                   alt="Récepteur GNSS Hi target V200"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -409,7 +409,7 @@ export default function Products() {
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
               <div className="h-64 relative overflow-hidden">
                 <Image
-                  src="/equipements/IMG-20251021-WA0006.jpg"
+                  src="/equipements/IMG-20251021-WA0004.jpg"
                   alt="Drone Bathymétrique bi fréquence"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -466,7 +466,7 @@ export default function Products() {
             <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
               <div className="h-64 relative overflow-hidden">
                 <Image
-                  src="/equipements/IMG-20251021-WA0007.jpg"
+                  src="/equipements/IMG-20251021-WA0008.jpg"
                   alt="Base station DRTK3"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
