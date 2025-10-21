@@ -6,6 +6,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import DroneAnimation from '@/components/DroneAnimation';
 import BackToTop from '../components/BackToTop';
+import EquipmentGrid from '../components/EquipmentGrid';
+import { equipments } from '../data/equipments';
 
 export default function Home() {
   useEffect(() => {
@@ -220,7 +222,7 @@ export default function Home() {
 
       {/* Why Us Section */}
       <section id="pourquoi-nous" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0">
           <Image
             src="/pattern-blue-1200x2400.jpg"
             alt="Technology background"
@@ -230,11 +232,11 @@ export default function Home() {
         </div>
         <div className="container mx-auto px-4 lg:px-6 relative z-20">
           <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
               Pourquoi choisir Lidar One ?
             </h2>
             <div className="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div>
-            <p className="text-xl text-lidar-blue max-w-2xl mx-auto font-cyber">
+            <p className="text-xl text-lidar-blue max-w-2xl mx-auto font-cyber text-white">
               L'excellence à votre service
             </p>
           </div>
@@ -291,176 +293,10 @@ export default function Home() {
               Équipements professionnels de haute précision
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="glass-card rounded-xl overflow-hidden hover-card group">
-              <div className="h-64 relative overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Drone professionnel"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
-                </div>
-                <div className="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
-                  <span className="text-lidar-blue text-sm font-bold">Nouveau</span>
-                </div>
-              </div>
-              <div className="p-6 relative">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold mb-2 text-lidar-dark">Drone Matrice 350 RTK</h3>
-                  <p className="text-gray-600 text-sm">Drone professionnel avec RTK intégré</p>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-microchip text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">Intelligence embarquée avancée</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-camera text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">Caméra 4K HDR</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-battery-full text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">55 minutes d'autonomie</span>
-                  </div>
-                </div>
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  <a
-                    href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location du Drone Matrice 350 RTK"
-                    className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300"
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      <i className="fas fa-clock mr-2"></i>
-                      Louer
-                    </span>
-                  </a>
-                  <a
-                    href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat du Drone Matrice 350 RTK"
-                    className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300"
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      <i className="fas fa-shopping-cart mr-2"></i>
-                      Acheter
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="glass-card rounded-xl overflow-hidden hover-card group">
-              <div className="h-64 relative overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="GPS RTK"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
-                </div>
-                <div className="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
-                  <span className="text-lidar-blue text-sm font-bold">Premium</span>
-                </div>
-              </div>
-              <div className="p-6 relative">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold mb-2 text-lidar-dark">GPS RTK Leica GS18 T</h3>
-                  <p className="text-gray-600 text-sm">Récepteur GNSS de haute précision</p>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-satellite text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">Multi-constellation GNSS</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-tachometer-alt text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">Précision millimétrique</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-wifi text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">RTK temps réel</span>
-                  </div>
-                </div>
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  <a
-                    href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location du GPS RTK Leica GS18 T"
-                    className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300"
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      <i className="fas fa-clock mr-2"></i>
-                      Louer
-                    </span>
-                  </a>
-                  <a
-                    href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat du GPS RTK Leica GS18 T"
-                    className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300"
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      <i className="fas fa-shopping-cart mr-2"></i>
-                      Acheter
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="glass-card rounded-xl overflow-hidden hover-card group">
-              <div className="h-64 relative overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Station totale"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-lidar-dark/30 via-transparent to-transparent">
-                </div>
-                <div className="absolute top-4 right-4 bg-lidar-blue/20 backdrop-blur-sm px-3 py-1 rounded-full border border-lidar-blue/30">
-                  <span className="text-lidar-blue text-sm font-bold">Pro</span>
-                </div>
-              </div>
-              <div className="p-6 relative">
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold mb-2 text-lidar-dark">Station Totale Leica TS16</h3>
-                  <p className="text-gray-600 text-sm">Station totale robotisée avec ATR</p>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-cube text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">Technologie robotisée</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-expand-arrows-alt text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">ATR automatique</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <i className="fas fa-crosshairs text-lidar-blue"></i>
-                    <span className="text-sm text-gray-600">Suivi de cible précis</span>
-                  </div>
-                </div>
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  <a
-                    href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par la location de la Station Totale Leica TS16"
-                    className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300"
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      <i className="fas fa-clock mr-2"></i>
-                      Louer
-                    </span>
-                  </a>
-                  <a
-                    href="https://wa.me/237650907144650907155?text=Bonjour, je suis intéressé par l'achat de la Station Totale Leica TS16"
-                    className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-4 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300"
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      <i className="fas fa-shopping-cart mr-2"></i>
-                      Acheter
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <EquipmentGrid equipments={equipments.slice(0, 3)} />
           <div className="text-center mt-16">
             <a
-              href="/products"
+              href="/equipments"
               className="cyber-button inline-block bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-4 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center justify-center">

@@ -81,7 +81,7 @@ export default function Header() {
                 </li>
                 <li>
                   <a
-                    href="/products"
+                    href="/equipments"
                     className="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full"
                   >
                     Équipements
@@ -156,7 +156,7 @@ export default function Header() {
             </li>
             <li>
               <a
-                href="/products"
+                href="/equipments"
                 className="block text-gray-800 font-medium hover:text-lidar-blue transition-colors"
               >
                 Équipements
