@@ -40,20 +40,20 @@ export default function Header() {
     <>
       <header
         id="header"
-        className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 shadow-md' : 'py-4'
+        className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-1 shadow-md' : 'py-2'
           } bg-white`}
       >
         <div className="container mx-auto px-4 lg:px-6">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center text-lidar-dark text-xl font-bold">
-              <div className="logo-container">
+              <div className="logo-container h-16">
                 <div className="logo-ray"></div>
                 <Image
                   src="/logo.svg"
-                  className="w-16 h-16 contain logo-grayscale logo-glow"
+                  className="w-24 h-24 contain logo-grayscale logo-glow -translate-y-4"
                   alt="Lidar One Logo"
-                  width={64}
-                  height={64}
+                  width={128}
+                  height={128}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -74,6 +74,14 @@ export default function Header() {
                     className="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full"
                   >
                     Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/a-propos"
+                    className="text-lidar-dark font-medium hover:text-lidar-blue transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    À propos
                   </Link>
                 </li>
                 <li>
@@ -147,6 +155,14 @@ export default function Header() {
                 className="block text-gray-800 font-medium hover:text-lidar-blue transition-colors"
               >
                 Services
+              </a>
+            </li>
+            <li>
+              <a
+                href="/a-propos"
+                className="block text-gray-800 font-medium hover:text-lidar-blue transition-colors"
+              >
+                À propos
               </a>
             </li>
             <li>
