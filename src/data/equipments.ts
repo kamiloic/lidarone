@@ -1,6 +1,7 @@
 export interface Equipment {
   id: string;
-  image: string;
+  image?: string; // Optional single image
+  images?: string[]; // Optional array of images
   title: string;
   description: string;
   features: { icon: string; text: string }[];
@@ -12,7 +13,7 @@ export interface Equipment {
 export const equipments: Equipment[] = [
   {
     id: 'dji-matrice-350-l2',
-    image: '/equipements/IMG-20251021-WA0006.jpg',
+    images: ['/equipements/IMG-20251021-WA0006.jpg', '/equipements/IMG-20251021-WA0007.jpg'],
     title: 'Dji Matrice 350 avec capteur LiDAR dji Zenmuse L2',
     description: 'Drone professionnel avec LiDAR intégré pour relevés 3D haute précision',
     features: [
