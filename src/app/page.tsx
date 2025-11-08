@@ -9,6 +9,7 @@ import DroneAnimation from '@/components/DroneAnimation';
 import BackToTop from '../components/BackToTop';
 import EquipmentGrid from '../components/EquipmentGrid';
 import { equipments } from '../data/equipments';
+import ExpertiseCarousel from '@/components/ExpertiseCarousel';
 
 export default function Home() {
   useEffect(() => {
@@ -129,97 +130,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white parallax-container">
-        <div className="container mx-auto px-4 lg:px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text">
-              Nos Services
-            </h2>
-            <div className="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div>
-            <p className="text-xl text-lidar-blue max-w-2xl mx-auto font-cyber">
-              Excellence et précision dans chaque mission
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
-              <div className="p-8 text-center">
-                <div className="service-icon">
-                  <i className="fas fa-drafting-compass"></i>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Topographie</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Levés topographiques précis pour vos projets de construction, d&apos;infrastructure et d&apos;aménagement.
-                </p>
-                <Link
-                  href="/services"
-                  className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300 inline-block"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    En savoir plus <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-            </div>
-            <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
-              <div className="p-8 text-center">
-                <div className="service-icon">
-                  <i className="fas fa-map-marked-alt"></i>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Cadastre</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Délimitation précise des propriétés et mise à jour des documents cadastraux.
-                </p>
-                <Link
-                  href="/services"
-                  className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300 inline-block"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    En savoir plus <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-            </div>
-            <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
-              <div className="p-8 text-center">
-                <div className="service-icon">
-                  <i className="fas fa-water"></i>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Bathymétrie</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Cartographie des fonds marins et des plans d'eau pour vos projets hydrauliques et portuaires.
-                </p>
-                <Link
-                  href="/services"
-                  className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300 inline-block"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    En savoir plus <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-            </div>
-            <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
-              <div className="p-8 text-center">
-                <div className="service-icon">
-                  <i className="fas fa-drone"></i>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Lidar & Drone Survey</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Technologies de pointe pour des relevés 3D rapides et précis par drone et lidar.
-                </p>
-                <Link
-                  href="/services"
-                  className="cyber-button bg-lidar-blue/10 border border-lidar-blue/30 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/20 transition-all duration-300 inline-block"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    En savoir plus <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ExpertiseCarousel />
 
       {/* Why Us Section */}
       <section id="pourquoi-nous" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
