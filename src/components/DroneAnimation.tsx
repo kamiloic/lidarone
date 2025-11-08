@@ -89,8 +89,8 @@ export default function DroneAnimation() {
             }
 
             // Boundary checks (in pixels)
-            const droneWidth = 400; // Lottie player width
-            const droneHeight = 400; // Lottie player height
+            const droneWidth = 200; // Lottie player width
+            const droneHeight = 200; // Lottie player height
             if (posX <= -windowWidth / 2 + droneWidth / 2 || posX >= windowWidth / 2 - droneWidth / 2) {
               velocityX = -velocityX;
               posX = Math.max(-windowWidth / 2 + droneWidth / 2, Math.min(windowWidth / 2 - droneWidth / 2, posX));
@@ -138,7 +138,7 @@ export default function DroneAnimation() {
       <div
         ref={lottieRef}
         id="lottie-drone"
-        className="fixed top-1/2 left-1/2 w-100 h-100 z-10 pointer-events-none"
+        className="fixed top-1/2 left-1/2 w-50 h-50 z-10 pointer-events-none"
         style={{ transform: 'translate(-50%, -50%)' }}
       >
         {/* @ts-expect-error: Lottie player is a custom element not recognized by TypeScript */}
