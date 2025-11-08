@@ -404,6 +404,15 @@ export default function Home() {
                 className="max-w-full max-h-full object-contain partner-logo"
               />
             </div>
+            <div className="w-32 h-32 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 transform hover:-translate-y-2">
+              <Image
+                src="/partners/logo_matiere.webp"
+                alt="Partner 9"
+                width={128}
+                height={128}
+                className="max-w-full max-h-full object-contain partner-logo"
+              />
+            </div>
           </div>
         </div>
       </section>
