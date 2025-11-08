@@ -19,6 +19,7 @@ export default function Header() {
 
   // Handle scroll effect
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -46,6 +47,7 @@ export default function Header() {
 
   // Handle escape key to close menu
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
@@ -57,6 +59,7 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   const scrollToSection = useCallback((sectionId: string) => {
+    if (typeof window === 'undefined') return;
     const currentPath = window.location.pathname;
 
     if (currentPath !== '/') {
@@ -77,6 +80,7 @@ export default function Header() {
   }, []);
 
   const openWhatsApp = useCallback(() => {
+    if (typeof window === 'undefined') return;
     const encodedMessage = encodeURIComponent(WHATSAPP_CONFIG.defaultMessage);
     const whatsappUrl = `https://wa.me/${WHATSAPP_CONFIG.phone}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -155,7 +159,7 @@ export default function Header() {
                 <li>
                   <button
                     onClick={() => scrollToSection('#contact')}
-                    className={`font-medium transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 ${pathname === '/' && window.location.hash === '#contact'
+                    className={`font-medium transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-lidar-blue after:transition-all after:duration-300 ${typeof window !== 'undefined' && pathname === '/' && window.location.hash === '#contact'
                       ? 'text-lidar-blue after:w-full'
                       : 'text-lidar-dark hover:text-lidar-blue after:w-0 hover:after:w-full'
                       }`}

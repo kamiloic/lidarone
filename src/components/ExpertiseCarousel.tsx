@@ -51,6 +51,7 @@ export default function ExpertiseCarousel() {
 
     // Responsive breakpoints
     useEffect(() => {
+        if (typeof window === 'undefined') return;
         const handleResize = () => {
             const width = window.innerWidth;
             if (width < 640) setVisibleCount(1);
@@ -132,6 +133,7 @@ export default function ExpertiseCarousel() {
 
     // Keyboard navigation
     useEffect(() => {
+        if (typeof window === 'undefined') return;
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'ArrowLeft') {
                 handlePrev();

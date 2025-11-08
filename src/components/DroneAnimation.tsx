@@ -6,6 +6,7 @@ export default function DroneAnimation() {
   const lottieRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     // Load Lottie player script
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js';
