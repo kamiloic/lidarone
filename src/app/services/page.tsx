@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import BackToTop from '../../components/BackToTop';
+import ExpertiseCarousel from '@/components/ExpertiseCarousel';
 
 export default function Services() {
   useEffect(() => {
@@ -109,108 +110,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid Section */}
-      <section id="services-grid" className="py-20 bg-white parallax-container">
-        <div className="container mx-auto px-4 lg:px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text">
-              Nos Domaines d'Expertise
-            </h2>
-            <div className="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div>
-            <p className="text-xl text-lidar-blue max-w-2xl mx-auto font-cyber">
-              Excellence et précision dans chaque mission
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Topographie */}
-            <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
-              <div className="p-8 text-center">
-                <div className="service-icon">
-                  <i className="fas fa-drafting-compass"></i>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Topographie</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Levés topographiques précis pour vos projets de construction, d'infrastructure et d'aménagement.
-                  Nous utilisons des technologies de pointe pour garantir une précision millimétrique.
-                </p>
-                <Link
-                  href="/#contact"
-                  className="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 inline-block font-semibold"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    En savoir plus <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Cadastre */}
-            <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
-              <div className="p-8 text-center">
-                <div className="service-icon">
-                  <i className="fas fa-map-marked-alt"></i>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Cadastre</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Délimitation précise des propriétés et mise à jour des documents cadastraux.
-                  Nos experts garantissent la conformité avec les réglementations en vigueur.
-                </p>
-                <Link
-                  href="/#contact"
-                  className="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 inline-block font-semibold"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    En savoir plus <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Bathymétrie */}
-            <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
-              <div className="p-8 text-center">
-                <div className="service-icon">
-                  <i className="fas fa-water"></i>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Bathymétrie</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Cartographie des fonds marins et des plans d'eau pour vos projets hydrauliques et portuaires.
-                  Nous utilisons des sondeurs multifaisceaux pour des résultats précis.
-                </p>
-                <Link
-                  href="/#contact"
-                  className="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 inline-block font-semibold"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    En savoir plus <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Lidar & Drone Survey */}
-            <div className="glass-card rounded-xl overflow-hidden hover-card parallax-card group">
-              <div className="p-8 text-center">
-                <div className="service-icon">
-                  <i className="fas fa-drone"></i>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-lidar-dark">Lidar & Drone Survey</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Technologies de pointe pour des relevés 3D rapides et précis par drone et lidar.
-                  Idéal pour les projets complexes nécessitant une modélisation détaillée.
-                </p>
-                <Link
-                  href="/#contact"
-                  className="cyber-button bg-lidar-blue/20 border border-lidar-blue/40 text-lidar-blue py-2 px-6 rounded-lg hover:bg-lidar-blue/30 transition-all duration-300 inline-block font-semibold"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    En savoir plus <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ExpertiseCarousel />
 
       {/* Detailed Services Section */}
       <section className="py-20 bg-gray-50">
@@ -225,30 +125,30 @@ export default function Services() {
             </p>
           </div>
 
-          {/* Topographie Details */}
+          {/* Lidar (aérien et terrestre) Details */}
           <div className="mb-20">
             <div className="flex flex-col lg:flex-row items-center gap-10">
               <div className="lg:w-1/2">
-                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Topographie</h3>
+                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Lidar (aérien et terrestre)</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Notre équipe de topographes expérimentés utilise des équipements de dernière génération pour réaliser des levés topographiques précis et fiables.
+                  Nous utilisons des technologies de pointe comme le lidar aéroporté et les drones pour des relevés 3D rapides, précis et économiques.
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start">
                     <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Levés planimétriques et altimétriques</span>
+                    <span>Relevés lidar aéroportés et terrestres</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Implantation de projets de construction</span>
+                    <span>Photogrammétrie par drone haute résolution</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Suivi de déformations et mouvements de terrain</span>
+                    <span>Modélisation 3D de sites et d'infrastructures</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Calculs de cubatures et mouvements de terres</span>
+                    <span>Inspections techniques par drone</span>
                   </li>
                 </ul>
                 <Link
@@ -262,57 +162,8 @@ export default function Services() {
               </div>
               <div className="lg:w-1/2">
                 <Image
-                  src="/gps-green-grass.jpg"
-                  alt="Topographie"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-md w-full h-80 object-cover"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="section-divider"></div>
-
-          {/* Cadastre Details */}
-          <div className="mb-20">
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-10">
-              <div className="lg:w-1/2">
-                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Cadastre</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Nous proposons des services complets de gestion cadastrale, de la délimitation des propriétés à la mise à jour des documents officiels.
-                </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Bornage et délimitation de propriétés</span>
-                  </li>
-                  <li className="flex items-start">
-                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Mise à jour des plans cadastraux</span>
-                  </li>
-                  <li className="flex items-start">
-                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Expertises judiciaires en matière foncière</span>
-                  </li>
-                  <li className="flex items-start">
-                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Géoréférencement de documents anciens</span>
-                  </li>
-                </ul>
-                <Link
-                  href="/#contact"
-                  className="cyber-button bg-lidar-blue hover:bg-lidar-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 inline-block"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    Demander un devis <i className="fas fa-arrow-right ml-2"></i>
-                  </span>
-                </Link>
-              </div>
-              <div className="lg:w-1/2">
-                <Image
-                  src="/topo-map.jpg"
-                  alt="Cadastre"
+                  src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Lidar (aérien et terrestre)"
                   width={600}
                   height={400}
                   className="rounded-lg shadow-md w-full h-80 object-cover"
@@ -325,7 +176,7 @@ export default function Services() {
 
           {/* Bathymétrie Details */}
           <div className="mb-20">
-            <div className="flex flex-col lg:flex-row items-center gap-10">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-10">
               <div className="lg:w-1/2">
                 <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Bathymétrie</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
@@ -372,30 +223,79 @@ export default function Services() {
 
           <div className="section-divider"></div>
 
-          {/* Lidar & Drone Survey Details */}
+          {/* Topographie (gnss, station total et nivellement) Details */}
           <div className="mb-20">
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-10">
+            <div className="flex flex-col lg:flex-row items-center gap-10">
               <div className="lg:w-1/2">
-                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Lidar & Drone Survey</h3>
+                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Topographie (gnss, station total et nivellement)</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Nous utilisons des technologies de pointe comme le lidar aéroporté et les drones pour des relevés 3D rapides, précis et économiques.
+                  Notre équipe de topographes expérimentés utilise des équipements de dernière génération pour réaliser des levés topographiques précis et fiables.
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start">
                     <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Relevés lidar aéroportés et terrestres</span>
+                    <span>Levés planimétriques et altimétriques</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Photogrammétrie par drone haute résolution</span>
+                    <span>Implantation de projets de construction</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Modélisation 3D de sites et d'infrastructures</span>
+                    <span>Suivi de déformations et mouvements de terrain</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
-                    <span>Inspections techniques par drone</span>
+                    <span>Calculs de cubatures et mouvements de terres</span>
+                  </li>
+                </ul>
+                <Link
+                  href="/#contact"
+                  className="cyber-button bg-lidar-blue hover:bg-lidar-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 inline-block font-semibold"
+                >
+                  <span className="relative z-10 flex items-center justify-center">
+                    Demander un devis <i className="fas fa-arrow-right ml-2"></i>
+                  </span>
+                </Link>
+              </div>
+              <div className="lg:w-1/2">
+                <Image
+                  src="/gps-green-grass.jpg"
+                  alt="Topographie (gnss, station total et nivellement)"
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-md w-full h-80 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="section-divider"></div>
+
+          {/* Agriculture de précision Details */}
+          <div className="mb-20">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-10">
+              <div className="lg:w-1/2">
+                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Agriculture de précision</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Solutions avancées pour l'optimisation des rendements agricoles et la gestion durable des sols. Utilisation de données géospatiales pour une agriculture intelligente.
+                </p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
+                    <span>Cartographie des sols et analyse de fertilité</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
+                    <span>Surveillance des cultures par drone</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
+                    <span>Optimisation des intrants agricoles</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
+                    <span>Gestion intégrée des parcelles</span>
                   </li>
                 </ul>
                 <Link
@@ -409,8 +309,57 @@ export default function Services() {
               </div>
               <div className="lg:w-1/2">
                 <Image
-                  src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Lidar & Drone Survey"
+                  src="/drone-village.jpg"
+                  alt="Agriculture de précision"
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-md w-full h-80 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="section-divider"></div>
+
+          {/* Location et fourniture de materiel Details */}
+          <div className="mb-20">
+            <div className="flex flex-col lg:flex-row items-center gap-10">
+              <div className="lg:w-1/2">
+                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Location et fourniture de materiel</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Location et fourniture d'équipements topographiques et géomatiques de haute qualité. Solutions flexibles pour tous vos besoins en matériel professionnel.
+                </p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
+                    <span>Stations totales et GPS/GNSS</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
+                    <span>Drones professionnels et accessoires</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
+                    <span>Logiciels de traitement de données</span>
+                  </li>
+                  <li className="flex items-start">
+                    <i className="fas fa-check text-lidar-blue mt-1 mr-3"></i>
+                    <span>Formation et support technique</span>
+                  </li>
+                </ul>
+                <Link
+                  href="/#contact"
+                  className="cyber-button bg-lidar-blue hover:bg-lidar-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 inline-block font-semibold"
+                >
+                  <span className="relative z-10 flex items-center justify-center">
+                    Demander un devis <i className="fas fa-arrow-right ml-2"></i>
+                  </span>
+                </Link>
+              </div>
+              <div className="lg:w-1/2">
+                <Image
+                  src="/team-drone.jpg"
+                  alt="Location et fourniture de materiel"
                   width={600}
                   height={400}
                   className="rounded-lg shadow-md w-full h-80 object-cover"
