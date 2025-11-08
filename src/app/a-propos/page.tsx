@@ -53,33 +53,53 @@ export default function APropos() {
       {/* Presentation Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-text">
+          <div className="max-w-5xl mx-auto">
+
+            <div className="text-center mb-8">
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold gradient-text leading-tight">
                 Notre Entreprise
               </h2>
-              <div className="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div>
+              {/* <div className="w-40 h-1 mx-auto mb-8 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div> */}
+              <p className="text-2xl md:text-3xl font-semibold text-lidar-dark leading-relaxed text-center">
+                LiDAR One est une entreprise spécialisée en géomatique, topographie et cartographie 3D.
+              </p>
             </div>
 
-            <div className="reveal-card glass-card rounded-xl p-8 md:p-12 mb-12">
-              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                <p className="text-xl mb-6 font-medium text-lidar-dark">
-                  LiDAR One est une entreprise spécialisée en géomatique, topographie et cartographie 3D.
-                </p>
-                <p className="mb-6">
-                  Son équipe de géomètres-experts, techniciens topographes et télépilotes de drones met en œuvre des technologies avancées telles que le LiDAR, la photogrammétrie et le GNSS.
-                </p>
-                <p className="mb-6">
-                  Elle réalise des levés terrestres, aériens et bathymétriques pour des projets de BTP, d'ingénierie et d'environnement.
-                </p>
-                <p className="mb-6">
-                  LiDAR One fournit des données géospatiales précises et fiables pour une meilleure prise de décision.
-                </p>
-                <p className="text-lg font-medium text-lidar-blue">
-                  Son objectif : offrir des solutions innovantes et complètes à chaque étape des projets de ses clients.
-                </p>
+            <div className="reveal-card rounded-2xl p-10 md:p-16 mb-16">
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Son équipe de géomètres-experts, techniciens topographes et télépilotes de drones met en œuvre des technologies avancées telles que le LiDAR, la photogrammétrie et le GNSS.
+                    </p>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      Elle réalise des levés terrestres, aériens et bathymétriques pour des projets de BTP, d'ingénierie et d'environnement.
+                    </p>
+                  </div>
+
+                  <div className="space-y-6">
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      LiDAR One fournit des données géospatiales précises et fiables pour une meilleure prise de décision.
+                    </p>
+
+                    {/* 🎯 Objectif Section with Icon */}
+                    <div className="text-center md:text-left">
+                      <h3 className="flex items-center justify-center md:justify-start text-2xl md:text-3xl font-bold text-lidar-dark relative inline-block pb-2 w-fit mx-auto md:mx-0">
+                        <i className="fas fa-bullseye text-red-800 mr-3 text-3xl"></i>
+                        Objectif
+                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-lidar-red rounded-full"></span>
+                      </h3>
+
+                      <p className="mt-2 text-lg md:text-xl text-gray-700 leading-relaxed">
+                        Offrir des solutions innovantes et complètes à chaque étape des projets de nos clients.
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
               </div>
             </div>
+
 
             {/* Values Section */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -117,40 +137,35 @@ export default function APropos() {
             {/* Team Section */}
             <div className="reveal-card text-center">
               <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Notre Équipe</h3>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
                 Une équipe d'experts passionnés composée de géomètres, techniciens topographes et pilotes de drones professionnels.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="glass-card rounded-xl p-6">
-                  <div className="text-3xl text-lidar-blue mb-3">
-                    <i className="fas fa-user-tie"></i>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="glass-card rounded-xl p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+                  <div className="relative mb-6">
+                    <Image src="/team-drone.jpg" alt="Micarel" width={120} height={120} className="rounded-full mx-auto border-4 border-lidar-blue/20 shadow-lg" />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-t from-lidar-blue/10 to-transparent"></div>
                   </div>
-                  <h4 className="font-bold text-lidar-dark">Géomètres-Experts</h4>
-                  <p className="text-sm text-gray-600">Spécialistes en topographie et géomatique</p>
+                  <h4 className="font-bold text-xl text-lidar-dark mb-2">Micarel</h4>
+                  <p className="text-sm text-lidar-blue font-medium">Geometre Expert</p>
                 </div>
 
-                <div className="glass-card rounded-xl p-6">
-                  <div className="text-3xl text-lidar-blue mb-3">
-                    <i className="fas fa-cogs"></i>
+                <div className="glass-card rounded-xl p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+                  <div className="relative mb-6">
+                    <Image src="/team-drone.jpg" alt="Ruben" width={120} height={120} className="rounded-full mx-auto border-4 border-lidar-blue/20 shadow-lg" />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-t from-lidar-blue/10 to-transparent"></div>
                   </div>
-                  <h4 className="font-bold text-lidar-dark">Techniciens</h4>
-                  <p className="text-sm text-gray-600">Experts en équipements et technologies</p>
+                  <h4 className="font-bold text-xl text-lidar-dark mb-2">Ruben</h4>
+                  <p className="text-sm text-lidar-blue font-medium">Ing. Topo</p>
                 </div>
 
-                <div className="glass-card rounded-xl p-6">
-                  <div className="text-3xl text-lidar-blue mb-3">
-                    <i className="fas fa-drone"></i>
+                <div className="glass-card rounded-xl p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out">
+                  <div className="relative mb-6">
+                    <Image src="/team-drone.jpg" alt="Loïc" width={120} height={120} className="rounded-full mx-auto border-4 border-lidar-blue/20 shadow-lg" />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-t from-lidar-blue/10 to-transparent"></div>
                   </div>
-                  <h4 className="font-bold text-lidar-dark">Télépilotes</h4>
-                  <p className="text-sm text-gray-600">Pilotes de drones certifiés</p>
-                </div>
-
-                <div className="glass-card rounded-xl p-6">
-                  <div className="text-3xl text-lidar-blue mb-3">
-                    <i className="fas fa-chart-line"></i>
-                  </div>
-                  <h4 className="font-bold text-lidar-dark">Analystes</h4>
-                  <p className="text-sm text-gray-600">Spécialistes en traitement de données</p>
+                  <h4 className="font-bold text-xl text-lidar-dark mb-2">Loïc</h4>
+                  <p className="text-sm text-lidar-blue font-medium">Research & Dev, IT</p>
                 </div>
               </div>
             </div>
