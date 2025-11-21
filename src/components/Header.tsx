@@ -118,7 +118,7 @@ export default function Header() {
           }`}
         role="banner"
       >
-        <div className="container mx-auto px-4 lg:px-6">
+        <div className="relative z-10 container mx-auto px-4 lg:px-6">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link

@@ -89,12 +89,14 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="accueil" className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/team-drone.jpg"
-            alt="Drone flying over landscape"
-            fill
-            className="object-cover"
+        <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <video
+            src="/video/drone-LidarOne.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
           />
           <div className="absolute inset-0 bg-gradient-to-br from-lidar-dark/80 via-lidar-blue/70 to-lidar-dark/80"></div>
         </div>
