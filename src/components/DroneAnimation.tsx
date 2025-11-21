@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function DroneAnimation() {
   const lottieRef = useRef<HTMLDivElement>(null);
@@ -125,6 +125,26 @@ export default function DroneAnimation() {
     };
   }, []);
 
+  // Show animation only after user scrolls past the hero section
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const checkVisibility = () => {
+      const scrolled = window.pageYOffset;
+      const vh = window.innerHeight || 0;
+      setVisible(scrolled >= vh * 0.9); // show after ~90% of viewport scrolled
+    };
+
+    checkVisibility();
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('resize', checkVisibility);
+    return () => {
+      window.removeEventListener('scroll', checkVisibility);
+      window.removeEventListener('resize', checkVisibility);
+    };
+  }, []);
+
   return (
     <>
       {/* Error Message */}
@@ -139,8 +159,9 @@ export default function DroneAnimation() {
       <div
         ref={lottieRef}
         id="lottie-drone"
-        className="fixed top-1/2 left-1/2 w-50 h-50 z-10 pointer-events-none"
+        className={`fixed top-1/2 left-1/2 w-50 h-50 z-10 pointer-events-none transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
         style={{ transform: 'translate(-50%, -50%)' }}
+        aria-hidden={!visible}
       >
         {/* @ts-expect-error: Lottie player is a custom element not recognized by TypeScript */}
         <lottie-player

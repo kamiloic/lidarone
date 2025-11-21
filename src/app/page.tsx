@@ -75,7 +75,6 @@ export default function Home() {
 
   return (
     <div className="bg-white text-lidar-dark grid-background">
-      <DroneAnimation />
 
       {/* Landing Pad */}
       <div className="landing-pad">
@@ -98,7 +97,8 @@ export default function Home() {
             loop
             playsInline
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-lidar-dark/80 via-lidar-blue/70 to-lidar-dark/80"></div>
+          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#19355D]/40 via-[#116EAB]/30 to-[#19355D]/40 z-10" />
         </div>
         <div className="container mx-auto px-4 lg:px-6 relative z-20 text-center text-white">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
@@ -130,6 +130,8 @@ export default function Home() {
           <i className="fas fa-chevron-down text-3xl"></i>
         </div>
       </section>
+
+      <DroneAnimation />
 
       {/* Services Section */}
       <ExpertiseCarousel />
