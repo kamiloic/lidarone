@@ -6,8 +6,8 @@ import Link from 'next/link';
 const SERVICES_DATA = [
     {
         id: 'lidar',
-        icon: 'fa-drone',
-        title: 'Lidar (aérien et terrestre)',
+        icon: 'fa-plane',
+        title: 'Lidar (Aérien et Terrestre)',
         description:
             'Technologies de pointe pour des relevés 3D rapides et précis par drone et lidar, idéales pour des projets complexes nécessitant une modélisation détaillée.',
     },
@@ -19,18 +19,39 @@ const SERVICES_DATA = [
             'Cartographie des fonds marins et des plans d\'eau avec des sondeurs multifaisceaux pour des projets portuaires et hydrauliques précis et fiables.',
     },
     {
+        id: 'photogrammetrie',
+        icon: 'fa-camera',
+        title: 'Photogrammétrie',
+        description:
+            'Jusqu\'à 500h.jours, GSD entre 2-10cm/pixel, Capacité de mobilisation rapide, Orthophoto haute résolution.',
+    },
+    {
+        id: 'modeling-3d',
+        icon: 'fa-cube',
+        title: 'Modélisation 3D',
+        description:
+            'Rendu ultra réaliste et immersif, adaptation multi-plateforme pour une intégration seamless, acquisition oblique et verticale pour des modèles 3D complets et précis.',
+    },
+    {
         id: 'topographie',
         icon: 'fa-drafting-compass',
-        title: 'Topographie (GNSS, station totale, nivellement)',
+        title: 'Topographie (GNSS, Station Totale, Nivellement)',
         description:
             'Levés topographiques de haute précision pour des projets d\'aménagement, de construction ou d\'infrastructure avec précision millimétrique garantie.',
     },
     {
-        id: 'agriculture',
-        icon: 'fa-seedling',
-        title: 'Agriculture de précision',
+        id: 'thermographie-multispectral',
+        icon: 'fa-thermometer-half',
+        title: 'Thermographie et Multispectral par Drone',
         description:
-            'Solutions de cartographie et d\'analyse pour une gestion durable des sols et une optimisation des rendements agricoles grâce aux données géospatiales.',
+            'Acquisition de données thermiques et multispectrales NIR, Agriculture de précision, Évaluation des niveaux de stress hydrique des plantes.',
+    },
+    {
+        id: 'station-travail',
+        icon: 'fa-desktop',
+        title: 'Station de Travail',
+        description:
+            'Mise à disposition d\'équipements de calcul avancé et haute performance pour le traitement de données géospatiales complexes et l\'analyse approfondie.',
     },
     {
         id: 'location',
@@ -39,6 +60,13 @@ const SERVICES_DATA = [
         description:
             'Location et vente de matériel topographique et géomatique professionnel, avec assistance technique complète pour vos chantiers et projets.',
     },
+    {
+        id: 'formation',
+        icon: 'fa-graduation-cap',
+        title: 'Formation',
+        description:
+            'Programme de formation complet en géomatique et technologies géospatiales, couvrant les niveaux basique et avancés pour maîtriser les outils modernes, les méthodes de relevé et l\'analyse de données.',
+    }
 ];
 
 export default function ExpertiseCarousel() {
@@ -57,7 +85,7 @@ export default function ExpertiseCarousel() {
             if (width < 640) setVisibleCount(1);
             else if (width < 1024) setVisibleCount(2);
             else if (width < 1440) setVisibleCount(3);
-            else setVisibleCount(4);
+            else setVisibleCount(6);
         };
 
         handleResize();
@@ -116,20 +144,6 @@ export default function ExpertiseCarousel() {
         }, 700);
     }, [visibleCount, isTransitioning]);
 
-    // Auto-play with pause on hover
-    useEffect(() => {
-        if (isPaused || isTransitioning) return;
-
-        intervalRef.current = setInterval(() => {
-            handleNext();
-        }, 5000);
-
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-        };
-    }, [isPaused, isTransitioning, handleNext]);
 
     // Keyboard navigation
     useEffect(() => {
@@ -215,7 +229,7 @@ export default function ExpertiseCarousel() {
                         <div
                             className="flex transition-transform duration-700 ease-in-out"
                             style={{
-                                transform: `translateX(-${(currentIndex * 100) / SERVICES_DATA.length}%)`,
+                                transform: `translateX(-${(currentIndex * 100) / visibleCount}%)`,
                             }}
                         >
                             {SERVICES_DATA.map((service, i) => (

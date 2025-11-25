@@ -44,7 +44,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-6">Nos Services</h3>
             <ul className="space-y-3">
-              {['Topographie', 'Cadastre', 'Bathymétrie', 'LiDAR & Drone Survey'].map((service, idx) => (
+              {['Lidar (Aérien et Terrestre)', 'Bathymétrie', 'Photogrammétrie', 'Modélisation 3D', 'GNSS, Station Totale, Nivellement', 'Thermographie et Multispectral par Drone'].map((service, idx) => (
                 <li key={idx}>
                   <Link
                     href="/services"
