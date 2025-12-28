@@ -86,12 +86,12 @@ export default function Services() {
             Nos Services
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto">
-            Des solutions professionnelles pour la topographie, le cadastre, la bathymétrie et les relevés drone/Lidar
+            Des solutions professionnelles pour la topographie, le cadastre, la bathymétrie et les relevés drone/LiDAR
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="#services-grid"
-              className="cyber-button bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-3 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500"
+              className="cyber-button bg-glass-light backdrop-blur-sm text-white border border-white/30 font-bold py-3 px-8 rounded-lg hover:bg-white/10 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center justify-center">
                 <i className="fas fa-arrow-down mr-2"></i> Découvrir nos services
@@ -125,11 +125,11 @@ export default function Services() {
             </p>
           </div>
 
-          {/* Lidar (aérien et terrestre) Details */}
+          {/* LiDAR (aérien et terrestre) Details */}
           <div className="mb-20">
             <div className="flex flex-col lg:flex-row items-center gap-10">
               <div className="lg:w-1/2">
-                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">Lidar (aérien et terrestre)</h3>
+                <h3 className="text-3xl font-bold mb-6 text-lidar-dark">LiDAR (aérien et terrestre)</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   Nous utilisons des technologies de pointe comme le lidar aéroporté et les drones pour des relevés 3D rapides, précis et économiques.
                 </p>
@@ -163,7 +163,7 @@ export default function Services() {
               <div className="lg:w-1/2">
                 <Image
                   src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Lidar (aérien et terrestre)"
+                  alt="LiDAR (aérien et terrestre)"
                   width={600}
                   height={400}
                   className="rounded-lg shadow-md w-full h-80 object-cover"
@@ -379,7 +379,7 @@ export default function Services() {
           </p>
           <Link
             href="/#contact"
-            className="cyber-button bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-3 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500 inline-block"
+            className="cyber-button bg-glass-light backdrop-blur-sm text-white border border-white/30 font-bold py-3 px-8 rounded-lg hover:bg-white/10 transition-all duration-500 inline-block"
           >
             <span className="relative z-10 flex items-center justify-center">
               <i className="fas fa-paper-plane mr-2"></i> Nous contacter

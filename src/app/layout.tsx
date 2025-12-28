@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Lidar One - Topographie, Cadastre & Solutions Drone",
-  description: "Lidar One vous accompagne avec des solutions de topographie, de cadastre et de levés drone sur mesure pour tous vos projets d'aménagement et de construction.",
+  title: "LiDAR One - LiDAR, Bathymétrie & Solutions Drone",
+  description: "LiDAR One propose des solutions LiDAR, bathymétriques et photogrammétriques au Cameroun et en Afrique, adaptées aux projets d’ingénierie, de cartographie et d’infrastructures.",
 };
 
 export default function RootLayout({

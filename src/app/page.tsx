@@ -105,12 +105,12 @@ export default function Home() {
             Précision et innovation<br />au service de votre projet
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-gray-100">
-            Lidar One vous accompagne avec des solutions de topographie, de cadastre et de levés drone sur mesure pour tous vos projets d&apos;aménagement et de construction.
+            LiDAR One vous accompagne avec des solutions de topographie, de cadastre et de levés drone sur mesure pour tous vos projets d&apos;aménagement et de construction.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/services"
-              className="cyber-button bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-4 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500"
+              className="cyber-button bg-glass-light backdrop-blur-sm text-white border border-white/30 font-bold py-4 px-8 rounded-lg hover:bg-white/10 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center justify-center">
                 <i className="fas fa-rocket mr-2"></i> Découvrir nos services
@@ -149,7 +149,7 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-6 relative z-20">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-              Pourquoi choisir Lidar One ?
+              Pourquoi choisir LiDAR One ?
             </h2>
             <div className="w-32 h-1 mx-auto mb-6 bg-gradient-to-r from-lidar-dark to-lidar-blue"></div>
             <p className="text-xl text-lidar-blue max-w-2xl mx-auto font-cyber text-white">
@@ -213,7 +213,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <Link
               href="/equipments"
-              className="cyber-button inline-block bg-glass-light backdrop-blur-sm text-lidar-blue border border-lidar-blue/30 font-bold py-4 px-8 rounded-lg hover:bg-lidar-blue/10 transition-all duration-500"
+              className="cyber-button inline-block bg-glass-light backdrop-blur-sm text-white border border-white/30 font-bold py-4 px-8 rounded-lg hover:bg-white/10 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center justify-center">
                 <i className="fas fa-th mr-2"></i>
@@ -375,7 +375,7 @@ export default function Home() {
                     <option>Topographie</option>
                     <option>Cadastre</option>
                     <option>Bathymétrie</option>
-                    <option>Lidar & Drone Survey</option>
+                    <option>LiDAR & Drone Survey</option>
                     <option>Vente d'équipement</option>
                     <option>Location d'équipement</option>
                   </select>

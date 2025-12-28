@@ -124,14 +124,14 @@ export default function Header() {
             <Link
               href="/"
               className="flex items-center text-lidar-dark text-xl font-bold focus:outline-none focus:ring-2 focus:ring-lidar-blue focus:ring-offset-2 rounded"
-              aria-label="Lidar One - Retour à l'accueil"
+              aria-label="LiDAR One - Retour à l'accueil"
             >
               <div className="logo-container h-16 relative">
                 <div className="logo-ray"></div>
                 <Image
                   src="/logo.svg"
                   className="w-24 h-24 contain logo-grayscale logo-glow -translate-y-4"
-                  alt="Lidar One Logo"
+                  alt="LiDAR One Logo"
                   width={96}
                   height={96}
                   priority

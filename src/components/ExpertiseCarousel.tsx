@@ -7,7 +7,7 @@ const SERVICES_DATA = [
     {
         id: 'lidar',
         icon: 'fa-plane',
-        title: 'Lidar (Aérien et Terrestre)',
+        title: 'LiDAR (Aérien et Terrestre)',
         description:
             'Technologies de pointe pour des relevés 3D rapides et précis par drone et lidar, idéales pour des projets complexes nécessitant une modélisation détaillée.',
     },
