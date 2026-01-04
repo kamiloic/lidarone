@@ -82,10 +82,14 @@ export default function ExpertiseCarousel() {
         if (typeof window === 'undefined') return;
         const handleResize = () => {
             const width = window.innerWidth;
-            if (width < 640) setVisibleCount(1);
-            else if (width < 1024) setVisibleCount(2);
-            else if (width < 1440) setVisibleCount(3);
-            else setVisibleCount(6);
+            let newVisibleCount;
+            if (width < 640) newVisibleCount = 1;
+            else if (width < 1024) newVisibleCount = 2;
+            else if (width < 1440) newVisibleCount = 3;
+            else if (width < 1920) newVisibleCount = 4;
+            else newVisibleCount = 5;
+            console.log('Window width:', width, 'Setting visibleCount to:', newVisibleCount);
+            setVisibleCount(newVisibleCount);
         };
 
         handleResize();
