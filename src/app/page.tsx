@@ -435,7 +435,7 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-semibold text-lidar-dark mb-1">Email</p>
-                      <p className="text-gray-600">contact@lidarone.cm</p>
+                      <p className="text-gray-600">contact@lidarone.com</p>
                     </div>
                   </div>
                 </div>
