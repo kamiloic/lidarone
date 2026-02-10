@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "LiDAR One - LiDAR, Bathymétrie & Solutions Drone",
-  description: "LiDAR One propose des solutions LiDAR, bathymétriques et photogrammétriques au Cameroun et en Afrique, adaptées aux projets d’ingénierie, de cartographie et d’infrastructures.",
+  description: "LiDAR One est un cabinet de géomètres-experts agréés en clientèle privée. \n Nous accompagnons nos clients dans la réalisation de leurs projets de Topographie, LiDAR, Bathymétrie, Photogrammétrie, ainsi que dans d’autres prestations géospatiales à forte valeur ajoutée au Cameroun et en Afrique.",
 };
 
 export default function RootLayout({

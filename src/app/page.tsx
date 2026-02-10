@@ -105,7 +105,7 @@ export default function Home() {
             Précision et innovation<br />au service de votre projet
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto text-gray-100">
-            LiDAR One vous accompagne avec des solutions de topographie, de cadastre et de levés drone sur mesure pour tous vos projets d&apos;aménagement et de construction.
+            LiDAR One est un cabinet de géomètres-experts agréés en clientèle privée. Nous accompagnons nos clients dans la réalisation de leurs projets de Topographie, LiDAR, Bathymétrie, Photogrammétrie, ainsi que dans d’autres prestations géospatiales à forte valeur ajoutée au Cameroun et en Afrique.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
@@ -209,7 +209,7 @@ export default function Home() {
               Équipements professionnels de haute précision
             </p>
           </div>
-          <EquipmentGrid equipments={equipments.slice(0, 3)} />
+          <EquipmentGrid equipments={equipments.slice(0, 6)} />
           <div className="text-center mt-16">
             <Link
               href="/equipments"
