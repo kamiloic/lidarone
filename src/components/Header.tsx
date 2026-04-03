@@ -104,6 +104,7 @@ export default function Header() {
   const navItems = [
     { name: 'Accueil', path: '/', isButton: false },
     { name: 'Services', path: '/services', isButton: false },
+    { name: 'Projets', path: '/projets', isButton: false },
     { name: 'À propos', path: '/a-propos', isButton: false },
     { name: 'Équipements', path: '/equipments', isButton: false },
   ];
@@ -251,8 +252,9 @@ export default function Header() {
                   >
                     <i className={`fas ${item.path === '/' ? 'fa-home' :
                       item.path === '/services' ? 'fa-cogs' :
-                        item.path === '/a-propos' ? 'fa-info-circle' :
-                          'fa-tools'
+                        item.path === '/projets' ? 'fa-folder-open' :
+                          item.path === '/a-propos' ? 'fa-info-circle' :
+                            'fa-tools'
                       } mr-3 w-5 text-center`}></i>
                     {item.name}
                   </Link>
