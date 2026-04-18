@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -10,8 +10,11 @@ import BackToTop from '../components/BackToTop';
 import EquipmentGrid from '../components/EquipmentGrid';
 import { equipments } from '../data/equipments';
 import ExpertiseCarousel from '@/components/ExpertiseCarousel';
+import VideoModal from '@/components/VideoModal';
 
 export default function Home() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   useEffect(() => {
     // Parallax effect for cards
     const handleMouseMove = (e: MouseEvent) => {
@@ -125,6 +128,20 @@ export default function Home() {
               </span>
             </a>
           </div>
+
+          <div className="mt-10">
+            <button
+              onClick={() => setIsVideoModalOpen(true)}
+              className="group flex items-center justify-center mx-auto text-white hover:text-white/80 transition-all duration-300"
+            >
+              <span className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mr-3 group-hover:scale-110 transition-all duration-300 group-hover:bg-lidar-blue group-hover:border-lidar-blue">
+                <i className="fas fa-play text-xs ml-0.5"></i>
+              </span>
+              <span className="font-semibold tracking-wide uppercase text-xs sm:text-sm border-b border-transparent group-hover:border-white transition-all">
+                Voir la présentation
+              </span>
+            </button>
+          </div>
         </div>
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white scroll-indicator z-20">
           <i className="fas fa-chevron-down text-3xl"></i>
@@ -135,6 +152,57 @@ export default function Home() {
 
       {/* Services Section */}
       <ExpertiseCarousel />
+
+      {/* Showcase Video Section */}
+      <section className="py-24 bg-lidar-dark relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-lidar-blue rounded-full blur-[120px] animate-pulse-slow"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-lidar-teal rounded-full blur-[120px] animate-pulse-slow"></div>
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+              Derrière chaque projet, notre savoir-faire
+            </h2>
+            <p className="text-xl text-gray-300 leading-relaxed">
+              Technologies de pointe, équipe qualifiée, interventions sur le terrain : tout ce que nous faisons, en moins d&apos;une minute.
+            </p>
+          </div>
+
+          <div className="relative max-w-5xl mx-auto group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-lidar-blue to-lidar-teal rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 pointer-events-auto">
+              <video
+                src="/video/presentation_lidarOne.mp4"
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition-all duration-500">
+                <button
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/40 hover:scale-110 hover:bg-white/30 transition-all duration-300 group"
+                >
+                  <i className="fas fa-play text-3xl ml-2"></i>
+                </button>
+              </div>
+            </div>
+
+            {/* Legend/Info Badge */}
+            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white px-8 py-4 rounded-full shadow-xl flex items-center space-x-4 border border-gray-100">
+              <span className="flex h-3 w-3 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-lidar-blue opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-lidar-blue"></span>
+              </span>
+              <span className="text-lidar-dark font-bold whitespace-nowrap">LiDAR One</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Why Us Section */}
       <section id="pourquoi-nous" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
@@ -471,6 +539,12 @@ export default function Home() {
 
       <Footer />
       <BackToTop />
+
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoSrc="/video/presentation_lidarOne.mp4"
+      />
     </div>
   );
 }

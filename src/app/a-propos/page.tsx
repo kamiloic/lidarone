@@ -1,13 +1,16 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import BackToTop from '../../components/BackToTop';
+import VideoModal from '@/components/VideoModal';
 
 export default function APropos() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   useEffect(() => {
     // Intersection Observer for reveal animations
     const observerOptions = {
@@ -63,6 +66,28 @@ export default function APropos() {
               <p className="text-2xl md:text-3xl font-semibold text-lidar-dark leading-relaxed text-center">
                 LiDAR One est une entreprise spécialisée en géomatique, topographie et cartographie 3D.
               </p>
+            </div>
+
+            {/* Video Section */}
+            <div className="reveal-card mb-16 relative">
+              <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-100 group cursor-pointer" onClick={() => setIsVideoModalOpen(true)}>
+                <video
+                  src="/video/presentation_lidarOne.mp4"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="absolute inset-0 bg-lidar-dark/20 flex items-center justify-center transition-all duration-300 group-hover:bg-lidar-dark/10">
+                   <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl transform transition-all duration-300 group-hover:scale-110">
+                      <i className="fas fa-play text-lidar-blue text-2xl ml-1"></i>
+                   </div>
+                </div>
+                <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-bold text-lidar-dark shadow-lg">
+                  Regarder la vidéo
+                </div>
+              </div>
             </div>
 
             <div className="reveal-card rounded-2xl p-10 md:p-16 mb-16">
@@ -187,19 +212,6 @@ export default function APropos() {
                   <h4 className="font-bold text-xl text-lidar-dark mb-2 group-hover:text-lidar-blue transition-colors">Micarel</h4>
                   <p className="text-lidar-blue font-medium mb-3">IS ING - Managing Partner</p>
                   <p className="text-gray-500 text-sm mb-6">Expert en topographie et géomatique avec plus de 10 ans d'expérience dans la gestion de projets d'infrastructure.</p>
-
-                  {/* Social Links */}
-                  {/* <div className="flex justify-center gap-3">
-                    <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/237650907144" className="w-10 h-10 bg-gray-100 hover:bg-green-500 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-whatsapp"></i>
-                    </a>
-                  </div> */}
                 </div>
 
                 {/* Team Member 2 - NGAH ONANA Bernadin Fabrice */}
@@ -226,19 +238,6 @@ export default function APropos() {
                   <h4 className="font-bold text-xl text-lidar-dark mb-2 group-hover:text-lidar-blue transition-colors">NGAH ONANA Bernadin Fabrice</h4>
                   <p className="text-lidar-blue font-medium mb-3">Ingénieur Géomètre-Topographe</p>
                   <p className="text-gray-500 text-sm mb-6">Diplômé de l'ENSTP en Topographie et Cadastre. Expérience en levés topographiques, GNSS, photogrammétrie et conception routière.</p>
-
-                  {/* Social Links */}
-                  {/* <div className="flex justify-center gap-3">
-                    <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/237650907144" className="w-10 h-10 bg-gray-100 hover:bg-green-500 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-whatsapp"></i>
-                    </a>
-                  </div> */}
                 </div>
 
                 {/* Team Member 3 - Ruben ZEUFACK KITIO */}
@@ -265,25 +264,6 @@ export default function APropos() {
                   <h4 className="font-bold text-xl text-lidar-dark mb-2 group-hover:text-lidar-blue transition-colors">Ruben ZEUFACK KITIO</h4>
                   <p className="text-lidar-blue font-medium mb-3">Géomaticien | SIG | Cartographie</p>
                   <p className="text-gray-500 text-sm mb-6">Plus de 4 ans d'expérience en cartographie thématique, photogrammétrie par drone, télédétection et gestion de bases de données spatiales.</p>
-
-                  {/* Contact Info */}
-                  {/* <div className="text-xs text-gray-500 mb-4 space-y-1">
-                    <p><i className="fas fa-phone mr-2"></i>+237 691 445 145</p>
-                    <p><i className="fas fa-envelope mr-2"></i>ruben.zeufack@gmail.com</p>
-                  </div> */}
-
-                  {/* Social Links */}
-                  {/* <div className="flex justify-center gap-3">
-                    <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:ruben.zeufack@gmail.com" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/237691445145" className="w-10 h-10 bg-gray-100 hover:bg-green-500 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-whatsapp"></i>
-                    </a>
-                  </div> */}
                 </div>
 
                 {/* Team Member 4 - BIZIMANA Jean Claude */}
@@ -310,22 +290,6 @@ export default function APropos() {
                   <h4 className="font-bold text-xl text-lidar-dark mb-2 group-hover:text-lidar-blue transition-colors">BIZIMANA Jean Claude</h4>
                   <p className="text-lidar-blue font-medium mb-3">Technicien Supérieur en Topographie</p>
                   <p className="text-gray-500 text-sm mb-6">Plus de 23 ans d'expérience en levés topographiques, nivellement, calcul de polygonales et implantation de routes et infrastructures.</p>
-
-                  {/* Contact Info */}
-                  {/* <div className="text-xs text-gray-500 mb-4 space-y-1">
-                    <p><i className="fas fa-phone mr-2"></i>+237 675 669 173</p>
-                    <p><i className="fas fa-envelope mr-2"></i>bizimanajc21@gmail.com</p>
-                  </div> */}
-
-                  {/* Social Links */}
-                  {/* <div className="flex justify-center gap-3">
-                    <a href="mailto:bizimanajc21@gmail.com" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/237675669173" className="w-10 h-10 bg-gray-100 hover:bg-green-500 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-whatsapp"></i>
-                    </a>
-                  </div> */}
                 </div>
 
                 {/* Team Member 5 - Loïc KAMI */}
@@ -352,19 +316,6 @@ export default function APropos() {
                   <h4 className="font-bold text-xl text-lidar-dark mb-2 group-hover:text-lidar-blue transition-colors">Loïc KAMI</h4>
                   <p className="text-lidar-blue font-medium mb-3">Research & Dev, IT</p>
                   <p className="text-gray-500 text-sm mb-6">Développeur et expert en solutions technologiques géospatiales. Développement d'applications et traitement de données.</p>
-
-                  {/* Social Links */}
-                  {/* <div className="flex justify-center gap-3">
-                    <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lidar-blue hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/237650907144" className="w-10 h-10 bg-gray-100 hover:bg-green-500 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                      <i className="fab fa-whatsapp"></i>
-                    </a>
-                  </div> */}
                 </div>
               </div>
 
@@ -415,6 +366,12 @@ export default function APropos() {
 
       <Footer />
       <BackToTop />
+
+      <VideoModal 
+        isOpen={isVideoModalOpen} 
+        onClose={() => setIsVideoModalOpen(false)} 
+        videoSrc="/video/presentation_lidarOne.mp4" 
+      />
     </div>
   );
 }

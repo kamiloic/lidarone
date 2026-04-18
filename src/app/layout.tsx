@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "LiDAR One - LiDAR, Bathymétrie & Solutions Drone",
+  title: "LiDAR One - Cabinet de Géomètre Expert Agréé",
   description: "LiDAR One est un cabinet de géomètres-experts agréés en clientèle privée. \n Nous accompagnons nos clients dans la réalisation de leurs projets de Topographie, LiDAR, Bathymétrie, Photogrammétrie, ainsi que dans d’autres prestations géospatiales à forte valeur ajoutée au Cameroun et en Afrique.",
 };
 
