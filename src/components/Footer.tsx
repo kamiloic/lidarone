@@ -112,7 +112,7 @@ export default function Footer() {
         {/* ===== Bottom Bar ===== */}
         <div className="border-t border-white/10 pt-6 pb-8 text-center text-gray-400 text-sm md:text-base">
           <p>
-            © 2025 <span className="font-semibold text-white">LiDAR One</span> — Construit avec
+            © 2025 <span className="font-semibold text-white">LiDAR One</span> | Construit avec
             <i className="fas fa-heart text-red-500 mx-1"></i>
             au Cameroun par Bogital
           </p>

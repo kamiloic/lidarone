@@ -15,7 +15,7 @@ export const projects: Project[] = [
   {
     id: '1',
     title: 'Voie de contournement de Yaoundé (VCY) section T3',
-    description: 'Mise en place du canevas de polygonale principale et secondaire, Observations GNSS et Nivellement encadré et fermé de ces bornes + levés LiDAR et Photogrammétrie à Yaoundé – CAMEROUN. 30Km x 300m , levé bathymétrique des sections des ouvrages existants.',
+    description: 'Mise en place du canevas de polygonale principale et secondaire, Observations GNSS et Nivellement encadré et fermé de ces bornes + levés LiDAR et Photogrammétrie à Yaoundé, CAMEROUN. 30Km x 300m, levé bathymétrique des sections des ouvrages existants.',
     category: 'LiDAR',
     image: '/projects/1/vcy-t3-01.webp',
     images: [
@@ -78,7 +78,7 @@ export const projects: Project[] = [
   },
   {
     id: '5',
-    title: 'Projet de route Ntam – Nabeba (Congo)',
+    title: 'Projet de route Ntam - Nabeba (Congo)',
     description: 'Mise en place du canevas de polygonale principale et secondaire + Observations GNSS + levés LiDAR et Photogrammétrie à Ntam-CONGO. 55Km x 200m + 300 Ha, levé bathymétrique des sections des ouvrages existants.',
     category: 'Topographie',
     image: '/projects/5/ntam-nabeba-01.webp',
@@ -93,7 +93,7 @@ export const projects: Project[] = [
   },
   {
     id: '6',
-    title: 'Aménagement de la route Ebolowa – Akom 2- Kribi',
+    title: 'Aménagement de la route Ebolowa - Akom 2 - Kribi',
     description: 'Levés LiDAR et Photogrammétrie sur le long de la route Ebolowa-Akom2-Krib pour le compte d\'ICM. 200Km x 200m.',
     category: 'LiDAR',
     image: '/projects/6/ebolowa-akom2-kribi-01.webp',
@@ -109,7 +109,7 @@ export const projects: Project[] = [
   },
   {
     id: '7',
-    title: 'Aménagement de la route Lomié – Messok',
+    title: 'Aménagement de la route Lomié - Messok',
     description: 'Levés LiDAR et Photogrammétrie le long de la route Lomie Messok (60Km x 200m) et mise en place du canevas de polygonale principale et secondaire + levés LiDAR et Photogrammétrie (25Km x 200m). Matériel utilisé : Dji Matrice 350, LiDAR Zenmuse L2, Emlid RS3 et DRTK3.',
     category: 'LiDAR',
     image: '/projects/7/lomie-messok-01.webp',
