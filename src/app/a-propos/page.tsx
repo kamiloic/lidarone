@@ -173,7 +173,7 @@ export default function APropos() {
                     <div className="relative w-32 h-32 mx-auto">
                       <div className="absolute inset-0 bg-gradient-to-br from-lidar-blue to-lidar-dark rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <Image
-                        src="/team-drone.jpg"
+                        src="/cvs/Micarel_tchuisse.webp"
                         alt="Micarel"
                         width={128}
                         height={128}
@@ -212,7 +212,7 @@ export default function APropos() {
                     <div className="relative w-32 h-32 mx-auto">
                       <div className="absolute inset-0 bg-gradient-to-br from-lidar-blue to-lidar-dark rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <Image
-                        src="/team-drone.jpg"
+                        src="/cvs/fabrice_ngah.webp"
                         alt="NGAH ONANA Bernadin Fabrice"
                         width={128}
                         height={128}
@@ -251,7 +251,7 @@ export default function APropos() {
                     <div className="relative w-32 h-32 mx-auto">
                       <div className="absolute inset-0 bg-gradient-to-br from-lidar-blue to-lidar-dark rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <Image
-                        src="/team-drone.jpg"
+                        src="/cvs/Ruben_zeufack.webp"
                         alt="Ruben ZEUFACK KITIO"
                         width={128}
                         height={128}
@@ -296,7 +296,7 @@ export default function APropos() {
                     <div className="relative w-32 h-32 mx-auto">
                       <div className="absolute inset-0 bg-gradient-to-br from-lidar-blue to-lidar-dark rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <Image
-                        src="/team-drone.jpg"
+                        src="/cvs/bizi.webp"
                         alt="BIZIMANA Jean Claude"
                         width={128}
                         height={128}

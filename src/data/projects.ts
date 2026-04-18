@@ -17,12 +17,12 @@ export const projects: Project[] = [
     title: 'Voie de contournement de Yaoundé (VCY) section T3',
     description: 'Mise en place du canevas de polygonale principale et secondaire, Observations GNSS et Nivellement encadré et fermé de ces bornes + levés LiDAR et Photogrammétrie à Yaoundé – CAMEROUN. 30Km x 300m , levé bathymétrique des sections des ouvrages existants.',
     category: 'LiDAR',
-    image: '/projects/1/WhatsApp Image 2026-03-30 at 20.19.05.jpeg',
+    image: '/projects/1/vcy-t3-01.webp',
     images: [
-      '/projects/1/WhatsApp Image 2026-03-30 at 20.19.05.jpeg',
-      '/projects/1/WhatsApp Image 2026-03-30 at 20.19.06.jpeg',
-      '/projects/1/WhatsApp Image 2026-03-30 at 20.19.07.jpeg',
-      '/projects/1/WhatsApp Image 2026-03-30 at 20.19.08.jpeg'
+      '/projects/1/vcy-t3-01.webp',
+      '/projects/1/vcy-t3-02.webp',
+      '/projects/1/vcy-t3-03.webp',
+      '/projects/1/vcy-t3-04.webp'
     ],
     location: 'Yaoundé, Cameroun',
     year: '2026',
@@ -34,12 +34,12 @@ export const projects: Project[] = [
     title: 'Projet du barrage hydroélectrique de KIKOT',
     description: 'Levés LiDAR et Photogrammétrie à Kikot pour le compte de KHPC (Barrage 500MW) 500Ha + 26Km + Modélisation 3D des ponts sur le fleuve Sanaga à Kikot pour le compte de KHPC (Barrage 500MW). 120m et 70m',
     category: 'LiDAR',
-    image: '/projects/2/WhatsApp Image 2026-03-30 at 20.25.31.jpeg',
+    image: '/projects/2/kikot-01.webp',
     images: [
-      '/projects/2/WhatsApp Image 2026-03-30 at 20.25.31.jpeg',
-      '/projects/2/WhatsApp Image 2026-03-30 at 20.25.32.jpeg',
-      '/projects/2/WhatsApp Image 2026-03-30 at 20.25.33.jpeg',
-      '/projects/2/WhatsApp Image 2026-03-30 at 20.56.17 (1).jpeg'
+      '/projects/2/kikot-01.webp',
+      '/projects/2/kikot-02.webp',
+      '/projects/2/kikot-03.webp',
+      '/projects/2/kikot-04.webp'
     ],
     location: 'Kikot, Cameroun',
     year: '2024',
@@ -51,11 +51,11 @@ export const projects: Project[] = [
     title: 'Routes Bafoussam-Batie, Kekem et Dschang',
     description: 'Levés LiDAR et Photogrammétrie des routes reliant Bafoussam-Batie, Kekem et Dschang, Ouest-Cameroun. 135Km x 300m. Matériel utilisé : Dji Matrice 350, LiDAR Zenmuse L2, Emlid RS3 et DRTK3.',
     category: 'LiDAR',
-    image: '/projects/3/WhatsApp Image 2026-03-30 at 20.31.17.jpeg',
+    image: '/projects/3/bafoussam-01.webp',
     images: [
-      '/projects/3/WhatsApp Image 2026-03-30 at 20.31.17.jpeg',
-      '/projects/3/WhatsApp Image 2026-03-30 at 20.31.18.jpeg',
-      '/projects/3/WhatsApp Image 2026-03-30 at 20.31.19.jpeg'
+      '/projects/3/bafoussam-01.webp',
+      '/projects/3/bafoussam-02.webp',
+      '/projects/3/bafoussam-03.webp'
     ],
     location: 'Ouest-Cameroun',
     year: '2025',
@@ -66,11 +66,11 @@ export const projects: Project[] = [
     title: 'Etat des lieux sur la DUP du port de Kribi',
     description: 'Etat des lieux sur la DUP du port de Kribi. Levés LiDAR et Photogrammétrie sur une surface de 400Ha + 300Ha.',
     category: 'Photogrammétrie',
-    image: '/projects/4/WhatsApp Image 2026-03-30 at 20.33.51.jpeg',
+    image: '/projects/4/kribi-dup-01.webp',
     images: [
-      '/projects/4/WhatsApp Image 2026-03-30 at 20.33.51.jpeg',
-      '/projects/4/WhatsApp Image 2026-03-30 at 20.33.52.jpeg',
-      '/projects/4/WhatsApp Image 2026-03-30 at 20.33.53.jpeg'
+      '/projects/4/kribi-dup-01.webp',
+      '/projects/4/kribi-dup-02.webp',
+      '/projects/4/kribi-dup-03.webp'
     ],
     location: 'Kribi, Cameroun',
     year: '2026',
@@ -81,11 +81,11 @@ export const projects: Project[] = [
     title: 'Projet de route Ntam – Nabeba (Congo)',
     description: 'Mise en place du canevas de polygonale principale et secondaire + Observations GNSS + levés LiDAR et Photogrammétrie à Ntam-CONGO. 55Km x 200m + 300 Ha, levé bathymétrique des sections des ouvrages existants.',
     category: 'Topographie',
-    image: '/projects/5/WhatsApp Image 2026-03-30 at 20.38.04.jpeg',
+    image: '/projects/5/ntam-nabeba-01.webp',
     images: [
-      '/projects/5/WhatsApp Image 2026-03-30 at 20.38.04.jpeg',
-      '/projects/5/WhatsApp Image 2026-03-30 at 20.37.46 (1).jpeg',
-      '/projects/5/WhatsApp Image 2026-03-30 at 20.37.46 (2).jpeg'
+      '/projects/5/ntam-nabeba-01.webp',
+      '/projects/5/ntam-nabeba-02.webp',
+      '/projects/5/ntam-nabeba-03.webp'
     ],
     location: 'Ntam, Congo',
     year: '2025',
@@ -96,11 +96,11 @@ export const projects: Project[] = [
     title: 'Aménagement de la route Ebolowa – Akom 2- Kribi',
     description: 'Levés LiDAR et Photogrammétrie sur le long de la route Ebolowa-Akom2-Krib pour le compte d\'ICM. 200Km x 200m.',
     category: 'LiDAR',
-    image: '/projects/6/WhatsApp Image 2026-03-30 at 20.43.06.jpeg',
+    image: '/projects/6/ebolowa-akom2-kribi-01.webp',
     images: [
-      '/projects/6/WhatsApp Image 2026-03-30 at 20.43.06.jpeg',
-      '/projects/6/WhatsApp Image 2026-03-30 at 20.43.07.jpeg',
-      '/projects/6/WhatsApp Image 2026-03-30 at 20.43.08.jpeg'
+      '/projects/6/ebolowa-akom2-kribi-01.webp',
+      '/projects/6/ebolowa-akom2-kribi-02.webp',
+      '/projects/6/ebolowa-akom2-kribi-03.webp'
     ],
     location: 'Ebolowa-Kribi, Cameroun',
     year: '2024',
@@ -112,11 +112,11 @@ export const projects: Project[] = [
     title: 'Aménagement de la route Lomié – Messok',
     description: 'Levés LiDAR et Photogrammétrie le long de la route Lomie Messok (60Km x 200m) et mise en place du canevas de polygonale principale et secondaire + levés LiDAR et Photogrammétrie (25Km x 200m). Matériel utilisé : Dji Matrice 350, LiDAR Zenmuse L2, Emlid RS3 et DRTK3.',
     category: 'LiDAR',
-    image: '/projects/7/WhatsApp Image 2026-03-30 at 20.48.14.jpeg',
+    image: '/projects/7/lomie-messok-01.webp',
     images: [
-      '/projects/7/WhatsApp Image 2026-03-30 at 20.48.14.jpeg',
-      '/projects/7/WhatsApp Image 2026-03-30 at 20.48.15.jpeg',
-      '/projects/7/WhatsApp Image 2026-03-30 at 20.48.16.jpeg'
+      '/projects/7/lomie-messok-01.webp',
+      '/projects/7/lomie-messok-02.webp',
+      '/projects/7/lomie-messok-03.webp'
     ],
     location: 'Lomié-Messok, Cameroun',
     year: '2025',
@@ -127,10 +127,10 @@ export const projects: Project[] = [
     title: 'Projet de ligne de chemin fer phase 1',
     description: 'Mise en place du canevas de polygonale principale et secondaire + levés LiDAR et Photogrammétrie (25Km x 200m). Levé bathymétriques sur le fleuve LOBE (02ha x 05). Matériel Utilisé : Echosondeur mono faisceau-Bi fréquence Z axis 2F, Emlid RS3.',
     category: 'Bathymétrie',
-    image: '/projects/2/WhatsApp Image 2026-03-30 at 20.56.17 (5).jpeg',
+    image: '/projects/8/lobe-rail-01.webp',
     images: [
-      '/projects/2/WhatsApp Image 2026-03-30 at 20.56.17 (5).jpeg',
-      '/projects/2/WhatsApp Image 2026-03-30 at 20.56.17 (6).jpeg'
+      '/projects/8/lobe-rail-01.webp',
+      '/projects/8/lobe-rail-02.webp'
     ],
     location: 'Fleuve LOBE, Cameroun',
     year: '2025',
