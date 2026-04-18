@@ -24,14 +24,14 @@ export default function Footer() {
             </p>
             <div className="flex space-x-3">
               {[
-                { icon: 'fab fa-facebook-f', href: '#' },
-                { icon: 'fab fa-twitter', href: '#' },
-                { icon: 'fab fa-linkedin-in', href: '#' },
-                { icon: 'fab fa-instagram', href: '#' },
+                { icon: 'fab fa-linkedin-in', href: 'https://www.linkedin.com/company/lidar-one/' },
+                { icon: 'fab fa-instagram', href: 'https://www.instagram.com/lidar_one' },
               ].map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-lidar-blue rounded flex items-center justify-center hover:bg-opacity-80 transition-colors duration-300"
                 >
                   <i className={`${social.icon}`}></i>
